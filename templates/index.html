@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#67befc">
+<meta name="theme-color" content="#003399">
 <title>EU Quiz</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -15,28 +15,16 @@
     --green: #58cc02; --green-dark: #3f8f00; --green-bg: #d7ffb8;
     --red: #ff4b4b; --red-dark: #d42a2a; --red-bg: #ffdfe0;
     --ink: #1f2a3c; --muted: #6b7079; --line: #e3e5e9; --bg: #fff;
-    --sky: #67befc; --dirt: #8a3f17;
+    --eu-blue: #003399; --eu-gold: #ffcc00;
   }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; height: 100%; }
   body {
     font-family: "Nunito", system-ui, sans-serif; font-weight: 800;
-    color: var(--ink); background: var(--sky);
+    color: var(--ink); background: var(--eu-blue);
     display: flex; justify-content: center;
   }
 
-  /* ---------- pixel-art scene behind everything ---------- */
-  .scene { position: fixed; inset: 0; overflow: hidden; background: linear-gradient(var(--sky) 50%, var(--dirt) 50%); }
-  .scene-img { position: absolute; }
-  .scene-img img { display: block; width: 100%; height: 100%; }
-  /* the white board inside background.webp: x 543-1131, y 362-472 of 1673x940 */
-  .board-title {
-    position: absolute; left: 32.46%; top: 38.51%; width: 35.15%; height: 11.7%;
-    display: grid; place-items: center; margin: 0;
-    font-family: "Press Start 2P", monospace; font-weight: 400; color: var(--navy);
-    white-space: nowrap; transition: opacity .2s;
-  }
-  body:not(.on-start) .board-title { opacity: 0; }
   .app {
     width: 100%; max-width: 640px; min-height: 100dvh;
     display: flex; flex-direction: column;
@@ -62,7 +50,13 @@
   .btn.ghost { background: #fff; color: var(--navy); border: 2px solid var(--line); box-shadow: 0 4px 0 var(--line); }
 
   /* ---------- start screen ---------- */
-  .hero { flex: 1; }
+  .hero { flex: 1; display: grid; place-items: center; padding: 24px 0; }
+  .emblem { position: relative; width: min(78vw, 340px); aspect-ratio: 1; display: grid; place-items: center; }
+  .emblem svg { position: absolute; inset: 0; width: 100%; height: 100%; fill: var(--eu-gold); }
+  .title {
+    margin: 0; font-family: "Press Start 2P", monospace; font-weight: 400; color: #fff;
+    font-size: min(6vw, 26px); text-shadow: 3px 3px 0 rgba(0,0,0,.35); white-space: nowrap;
+  }
   .start-card {
     display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px;
     background: #fff; border: 3px solid var(--ink); border-radius: 18px; padding: 18px 16px 20px;
@@ -188,17 +182,16 @@
 </style>
 </head>
 <body class="on-start">
-<div class="scene" aria-hidden="true">
-  <div class="scene-img" id="sceneImg">
-    <img src="{{ url_for('static', filename='background.webp') }}" alt="">
-    <h1 class="board-title" id="boardTitle">EU Quiz</h1>
-  </div>
-</div>
 <div class="app">
 
   <!-- START -->
   <section class="screen active" id="start">
-    <div class="hero" id="hero"></div>
+    <div class="hero">
+      <div class="emblem">
+        <svg viewBox="0 0 200 200" aria-hidden="true"><polygon points="100.0,19.0 102.5,26.6 110.5,26.6 104.0,31.3 106.5,38.9 100.0,34.2 93.5,38.9 96.0,31.3 89.5,26.6 97.5,26.6"/><polygon points="135.0,28.4 137.5,36.0 145.5,36.0 139.0,40.7 141.5,48.3 135.0,43.6 128.5,48.3 131.0,40.7 124.5,36.0 132.5,36.0"/><polygon points="160.6,54.0 163.1,61.6 171.1,61.6 164.6,66.3 167.1,73.9 160.6,69.2 154.2,73.9 156.6,66.3 150.2,61.6 158.2,61.6"/><polygon points="170.0,89.0 172.5,96.6 180.5,96.6 174.0,101.3 176.5,108.9 170.0,104.2 163.5,108.9 166.0,101.3 159.5,96.6 167.5,96.6"/><polygon points="160.6,124.0 163.1,131.6 171.1,131.6 164.6,136.3 167.1,143.9 160.6,139.2 154.2,143.9 156.6,136.3 150.2,131.6 158.2,131.6"/><polygon points="135.0,149.6 137.5,157.2 145.5,157.2 139.0,161.9 141.5,169.5 135.0,164.8 128.5,169.5 131.0,161.9 124.5,157.2 132.5,157.2"/><polygon points="100.0,159.0 102.5,166.6 110.5,166.6 104.0,171.3 106.5,178.9 100.0,174.2 93.5,178.9 96.0,171.3 89.5,166.6 97.5,166.6"/><polygon points="65.0,149.6 67.5,157.2 75.5,157.2 69.0,161.9 71.5,169.5 65.0,164.8 58.5,169.5 61.0,161.9 54.5,157.2 62.5,157.2"/><polygon points="39.4,124.0 41.8,131.6 49.8,131.6 43.4,136.3 45.8,143.9 39.4,139.2 32.9,143.9 35.4,136.3 28.9,131.6 36.9,131.6"/><polygon points="30.0,89.0 32.5,96.6 40.5,96.6 34.0,101.3 36.5,108.9 30.0,104.2 23.5,108.9 26.0,101.3 19.5,96.6 27.5,96.6"/><polygon points="39.4,54.0 41.8,61.6 49.8,61.6 43.4,66.3 45.8,73.9 39.4,69.2 32.9,73.9 35.4,66.3 28.9,61.6 36.9,61.6"/><polygon points="65.0,28.4 67.5,36.0 75.5,36.0 69.0,40.7 71.5,48.3 65.0,43.6 58.5,48.3 61.0,40.7 54.5,36.0 62.5,36.0"/></svg>
+        <h1 class="title">EU Quiz</h1>
+      </div>
+    </div>
     <div class="start-card">
       <p class="sub">Work through the 1940s, 1950s and 1960s. You've got three lives each stage!</p>
       <button class="btn start-btn" id="go">Start</button>
@@ -304,20 +297,6 @@ function show(id) {
   window.scrollTo(0, 0);
 }
 
-// ---------- background scene: cover the screen, but always keep the whole board visible ----------
-const IMG = { w: 1673, h: 940 }, BOARD = { x: 543, y: 362, w: 588, h: 110 };
-function layoutScene() {
-  const w = innerWidth, h = innerHeight;
-  const s = Math.min(Math.max(w / IMG.w, h / IMG.h), (w - 24) / BOARD.w);
-  const iw = IMG.w * s, ih = IMG.h * s;
-  let top = h * 0.3 - (BOARD.y + BOARD.h / 2) * s;   // board sits ~30% down the screen
-  if (ih >= h) top = Math.min(0, Math.max(h - ih, top));
-  Object.assign($("sceneImg").style, { width: iw + "px", height: ih + "px", left: (w - iw) / 2 + "px", top: top + "px" });
-  $("boardTitle").style.fontSize = Math.min(BOARD.h * s * 0.42, BOARD.w * s / 9) + "px";
-  $("hero").style.minHeight = Math.max(0, top + (BOARD.y + BOARD.h) * s + 16) + "px";
-}
-addEventListener("resize", layoutScene);
-layoutScene();
 
 
 const levelName = n => LEVELS[n].name;
