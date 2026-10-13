@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#67befc">
+<title>EU Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1b3a6b; --navy-dark: #0f2448; --navy-bg: #e4ebf6; --navy-line: #a9bde0;
+    --yellow: #f2c230; --yellow-dark: #c99a12; --yellow-bg: #fdf3cf; --yellow-line: #efd577;
+    --grey: #8b9099; --grey-dark: #5f646d; --grey-bg: #eceef1; --grey-line: #c6cad1;
+    --green: #58cc02; --green-dark: #3f8f00; --green-bg: #d7ffb8;
+    --red: #ff4b4b; --red-dark: #d42a2a; --red-bg: #ffdfe0;
+    --ink: #1f2a3c; --muted: #6b7079; --line: #e3e5e9; --bg: #fff;
+    --sky: #67befc; --dirt: #8a3f17;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    font-family: "Nunito", system-ui, sans-serif; font-weight: 800;
+    color: var(--ink); background: var(--sky);
+    display: flex; justify-content: center;
+  }
+
+  /* ---------- pixel-art scene behind everything ---------- */
+  .scene { position: fixed; inset: 0; overflow: hidden; background: linear-gradient(var(--sky) 50%, var(--dirt) 50%); }
+  .scene-img { position: absolute; }
+  .scene-img img { display: block; width: 100%; height: 100%; }
+  /* the white board inside background.webp: x 543-1131, y 362-472 of 1673x940 */
+  .board-title {
+    position: absolute; left: 32.46%; top: 38.51%; width: 35.15%; height: 11.7%;
+    display: grid; place-items: center; margin: 0;
+    font-family: "Press Start 2P", monospace; font-weight: 400; color: var(--navy);
+    white-space: nowrap; transition: opacity .2s;
+  }
+  body:not(.on-start) .board-title { opacity: 0; }
+  .app {
+    width: 100%; max-width: 640px; min-height: 100dvh;
+    display: flex; flex-direction: column;
+    padding: env(safe-area-inset-top) 16px 0; position: relative;
+    background: var(--bg); box-shadow: 0 0 0 3px var(--ink);
+  }
+  body.on-start .app { background: none; box-shadow: none; }
+  .screen { display: none; flex: 1; flex-direction: column; }
+  .screen.active { display: flex; }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    font: inherit; font-size: 17px; letter-spacing: .8px; text-transform: uppercase;
+    border: 0; border-radius: 16px; padding: 14px 20px; width: 100%;
+    color: #fff; background: var(--navy); box-shadow: 0 4px 0 var(--navy-dark);
+    cursor: pointer; transition: transform .05s, filter .15s;
+  }
+  .btn:active:not(:disabled) { transform: translateY(4px); box-shadow: none; }
+  .btn:hover:not(:disabled) { filter: brightness(1.05); }
+  .btn:disabled { background: var(--line); color: #afafaf; box-shadow: 0 4px 0 #d0d0d0; cursor: default; }
+  .btn.yellow { background: var(--yellow); color: var(--navy-dark); box-shadow: 0 4px 0 var(--yellow-dark); }
+  .btn.grey { background: var(--grey); box-shadow: 0 4px 0 var(--grey-dark); }
+  .btn.ghost { background: #fff; color: var(--navy); border: 2px solid var(--line); box-shadow: 0 4px 0 var(--line); }
+
+  /* ---------- start screen ---------- */
+  .hero { flex: 1; }
+  .start-card {
+    display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px;
+    background: #fff; border: 3px solid var(--ink); border-radius: 18px; padding: 18px 16px 20px;
+    margin-bottom: calc(16px + env(safe-area-inset-bottom)); box-shadow: 0 6px 0 rgba(0,0,0,.18);
+  }
+  .start-card .sub { color: var(--ink); }
+  .start-btn {
+    margin-top: 8px; padding: 18px 20px;
+    font-family: "Press Start 2P", monospace; font-weight: 400; font-size: 18px; letter-spacing: 1px;
+    background: #d4a017; box-shadow: 0 5px 0 #8f6a00; border: 3px solid var(--ink);
+    text-shadow: 2px 2px 0 #8f6a00;
+  }
+  .mascot { font-size: 84px; line-height: 1; animation: bob 2.4s ease-in-out infinite; }
+  @keyframes bob { 50% { transform: translateY(-8px) rotate(-3deg); } }
+  h1 { font-size: clamp(28px, 7vw, 38px); font-weight: 900; margin: 4px 0 0; color: var(--navy); }
+  .sub { color: var(--muted); font-weight: 600; margin: 0; max-width: 34ch; }
+  .footer { padding: 16px 0 calc(20px + env(safe-area-inset-bottom)); }
+
+  /* ---------- top bar ---------- */
+  .top { display: flex; align-items: center; gap: 14px; padding: 18px 0 8px; }
+  .close { font: inherit; background: none; border: 0; font-size: 26px; color: #afafaf; cursor: pointer; padding: 0 4px; line-height: 1; }
+  .bar { flex: 1; height: 16px; background: var(--line); border-radius: 99px; overflow: hidden; }
+  .fill {
+    height: 100%; width: 0; background: var(--yellow); border-radius: 99px;
+    transition: width .4s ease; position: relative;
+  }
+  .fill::after { content: ""; position: absolute; left: 8px; right: 8px; top: 4px; height: 4px; border-radius: 99px; background: rgba(255,255,255,.3); }
+  .hearts { display: flex; gap: 4px; }
+  .heart { width: 28px; height: auto; display: block; }
+  .heart { transition: transform .3s, filter .3s, opacity .3s; }
+  .heart.lost { filter: grayscale(1); opacity: .35; }
+  .heart.pop { animation: pop .5s; }
+  @keyframes pop { 30% { transform: scale(1.6); } 60% { transform: scale(.8); } }
+
+  .streak { height: 22px; text-align: center; color: var(--yellow-dark); font-size: 15px; opacity: 0; transition: opacity .3s; }
+  .streak.show { opacity: 1; }
+
+  /* ---------- question ---------- */
+  .q { flex: 1; display: flex; flex-direction: column; gap: 16px; padding-top: 6px; }
+  .prompt { font-size: clamp(22px, 5.5vw, 28px); font-weight: 900; margin: 0; color: #000; }
+  .subject {
+    display: flex; gap: 12px; align-items: center;
+    border: 2px solid var(--line); border-radius: 16px; padding: 14px 16px;
+    font-size: clamp(17px, 4.4vw, 20px); font-weight: 800; position: relative; color: #000;
+  }
+  .subject .icon { font-size: 34px; flex-shrink: 0; }
+  .subject.date { font-size: clamp(24px, 6vw, 30px); font-weight: 900; color: #000; }
+  .options { display: grid; gap: 10px; }
+  .opt {
+    font: inherit; font-size: clamp(15px, 4vw, 17px); font-weight: 800; text-align: left;
+    display: flex; align-items: center; gap: 12px;
+    background: #fff; color: #000; cursor: pointer;
+    border: 2px solid var(--line); border-bottom-width: 4px; border-radius: 16px;
+    padding: 12px 14px; min-height: 58px; transition: background .1s, border-color .1s;
+  }
+  .opt .key {
+    flex-shrink: 0; width: 30px; height: 30px; border-radius: 8px; border: 2px solid var(--line);
+    display: grid; place-items: center; font-size: 14px; color: #afafaf;
+  }
+  .opt:hover:not(:disabled) { background: #f5f6f8; }
+  .opt:active:not(:disabled) { transform: translateY(2px); border-bottom-width: 2px; margin-bottom: 2px; }
+  .opt.sel { background: var(--navy-bg); border-color: var(--navy-line); color: #000; }
+  .opt.sel .key { border-color: var(--navy-line); color: var(--navy); }
+  .opt.right { background: var(--green-bg); border-color: var(--green); color: #000; }
+  .opt.right .key { border-color: var(--green); color: var(--green-dark); }
+  .opt.wrong { background: var(--red-bg); border-color: var(--red); color: #000; text-decoration: line-through; }
+  .opt.wrong .key { border-color: var(--red); color: var(--red-dark); }
+  .opt:disabled { cursor: default; }
+  .when .options { grid-template-columns: 1fr 1fr; }
+  .when .opt { justify-content: center; text-align: center; font-size: clamp(16px, 4.4vw, 19px); }
+  .when .opt .key { display: none; }
+  .level-tag { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 14px; color: var(--muted); letter-spacing: .5px; text-transform: uppercase; }
+  .level-tag .review-tag { background: var(--yellow-bg); color: var(--navy-dark); border: 2px solid var(--yellow); border-radius: 99px; padding: 2px 10px; font-size: 12px; }
+  .pixel { font-family: "Press Start 2P", monospace; font-weight: 400; }
+  .congrats { font-size: clamp(18px, 5.5vw, 26px); color: var(--navy); line-height: 1.4; margin: 6px 0 4px; }
+  .next-level { width: 100%; border: 3px solid var(--ink); border-radius: 18px; padding: 16px; background: var(--navy-bg); }
+  .next-level .lbl { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+  .next-level .name { font-size: clamp(16px, 4.5vw, 20px); color: var(--navy); margin: 10px 0 8px; line-height: 1.4; }
+  .next-level p { margin: 0; font-weight: 700; font-size: 15px; }
+  .end-heart { width: 96px; filter: grayscale(1); opacity: .6; }
+
+  /* ---------- check / feedback sheet ---------- */
+  .sheet {
+    margin: 0 -16px; padding: 16px 16px calc(20px + env(safe-area-inset-bottom));
+    border-top: 2px solid var(--line); background: #fff; transition: background .2s;
+  }
+  .sheet .fb { display: none; gap: 12px; align-items: flex-start; }
+  .sheet:not(.ok):not(.bad) { visibility: hidden; }
+  .sheet.ok, .sheet.bad { border-top-color: transparent; }
+  .sheet.ok { background: var(--green-bg); }
+  .sheet.bad { background: var(--red-bg); }
+  .sheet.ok .fb, .sheet.bad .fb { display: flex; animation: up .25s ease-out; }
+  @keyframes up { from { transform: translateY(12px); opacity: 0; } }
+  .fb .badge { width: 44px; height: 44px; border-radius: 50%; background: #fff; display: grid; place-items: center; font-size: 24px; flex-shrink: 0; }
+  .fb h3 { margin: 0 0 2px; font-size: 22px; font-weight: 900; }
+  .fb p { margin: 0; font-size: 15px; font-weight: 700; }
+  .sheet.ok h3, .sheet.ok p { color: var(--green-dark); }
+  .sheet.bad h3, .sheet.bad p { color: var(--red-dark); }
+
+  @media (min-width: 700px) {
+    .sheet { margin: 0; border-radius: 20px 20px 0 0; }
+    .opt { padding: 14px 16px; }
+  }
+
+  /* ---------- end screen ---------- */
+  .end { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 10px; padding: 24px 0; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; width: 100%; margin: 14px 0 6px; }
+  .stat { border: 2px solid; border-radius: 16px; overflow: hidden; }
+  .stat .lbl { color: #fff; font-size: 12px; padding: 5px 4px; letter-spacing: .5px; text-transform: uppercase; }
+  .stat .val { background: #fff; padding: 12px 4px; font-size: 22px; font-weight: 900; }
+  .stat.y { border-color: var(--yellow); } .stat.y .lbl { background: var(--yellow); color: var(--navy-dark); } .stat.y .val { color: var(--yellow-dark); }
+  .stat.g { border-color: var(--navy); } .stat.g .lbl { background: var(--navy); } .stat.g .val { color: var(--navy); }
+  .stat.b { border-color: var(--grey); } .stat.b .lbl { background: var(--grey); } .stat.b .val { color: var(--grey-dark); }
+  .review { width: 100%; text-align: left; margin-top: 10px; }
+  .review h4 { margin: 8px 0; font-size: 17px; }
+  .review li { list-style: none; border: 2px solid var(--line); border-radius: 14px; padding: 10px 12px; margin-bottom: 8px; font-weight: 700; font-size: 15px; }
+  .review li b { color: var(--navy); font-weight: 900; }
+  .review ul { padding: 0; margin: 0; }
+  .end-buttons { display: grid; gap: 12px; width: 100%; }
+
+  .shake { animation: shake .4s; }
+  @keyframes shake { 20%,60% { transform: translateX(-6px); } 40%,80% { transform: translateX(6px); } }
+</style>
+</head>
+<body class="on-start">
+<div class="scene" aria-hidden="true">
+  <div class="scene-img" id="sceneImg">
+    <img src="{{ url_for('static', filename='background.webp') }}" alt="">
+    <h1 class="board-title" id="boardTitle">EU Quiz</h1>
+  </div>
+</div>
+<div class="app">
+
+  <!-- START -->
+  <section class="screen active" id="start">
+    <div class="hero" id="hero"></div>
+    <div class="start-card">
+      <p class="sub">Work through the 1940s, 1950s and 1960s. You've got three lives each stage!</p>
+      <button class="btn start-btn" id="go">Start</button>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="screen" id="quiz">
+    <div class="top">
+      <button class="close" id="quit" aria-label="Quit">✕</button>
+      <div class="bar"><div class="fill" id="fill"></div></div>
+      <div class="hearts" id="hearts"></div>
+    </div>
+    <div class="streak" id="streak"></div>
+    <div class="q" id="q">
+      <div class="level-tag"><span id="levelTag"></span><span class="review-tag" id="reviewTag" hidden>Review</span></div>
+      <h2 class="prompt" id="prompt"></h2>
+      <div class="subject" id="subject"></div>
+      <div class="options" id="options"></div>
+    </div>
+    <div class="sheet" id="sheet">
+      <div class="fb">
+        <div class="badge" id="badge"></div>
+        <div><h3 id="fbTitle"></h3><p id="fbText"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEVEL COMPLETE -->
+  <section class="screen" id="levelup">
+    <div class="end">
+      <div class="mascot">🎉</div>
+      <h1 class="pixel congrats">Congratulations!</h1>
+      <p class="sub" id="luSub"></p>
+      <div class="stats">
+        <div class="stat y"><div class="lbl">Total XP</div><div class="val" id="luXp"></div></div>
+        <div class="stat g"><div class="lbl">Correct</div><div class="val" id="luScore"></div></div>
+        <div class="stat b"><div class="lbl">Best streak</div><div class="val" id="luStreak"></div></div>
+      </div>
+      <div class="next-level">
+        <div class="lbl">Next stage</div>
+        <div class="name pixel" id="luNext"></div>
+        <p id="luNote"></p>
+      </div>
+    </div>
+    <div class="footer"><button class="btn start-btn" id="luGo">Continue</button></div>
+  </section>
+
+  <!-- END -->
+  <section class="screen" id="end">
+    <div class="end">
+      <div class="mascot" id="endIcon"></div>
+      <h1 id="endTitle"></h1>
+      <p class="sub" id="endSub"></p>
+      <div class="stats">
+        <div class="stat y"><div class="lbl">Total XP</div><div class="val" id="sXp"></div></div>
+        <div class="stat g"><div class="lbl">Accuracy</div><div class="val" id="sAcc"></div></div>
+        <div class="stat b"><div class="lbl">Best streak</div><div class="val" id="sStreak"></div></div>
+      </div>
+      <div class="review" id="review"></div>
+    </div>
+    <div class="footer end-buttons">
+      <button class="btn" id="again"></button>
+      <button class="btn ghost" id="home">Home</button>
+    </div>
+  </section>
+
+</div>
+<script>
+const $ = id => document.getElementById(id);
+const LIVES = 3;
+const HEART = "{{ url_for('static', filename='heart.png') }}";
+const LEVELS = {{ levels | tojson }};
+let level, qs = [], i = 0, lives, picked, checked;
+let xp, correct, attempts, streak, bestStreak;   // whole game
+let levelCorrect, levelMistakes;                  // this level
+let wrongIds = new Set();                         // questions to bring back in later levels
+
+// ---------- sounds (tiny Web Audio beeps, no files needed) ----------
+let ctx;
+function tone(freqs, dur = .12, type = "sine") {
+  try {
+    ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+    freqs.forEach((f, k) => {
+      const o = ctx.createOscillator(), g = ctx.createGain(), t = ctx.currentTime + k * dur;
+      o.type = type; o.frequency.value = f;
+      g.gain.setValueAtTime(.15, t); g.gain.exponentialRampToValueAtTime(.001, t + dur * 1.8);
+      o.connect(g).connect(ctx.destination); o.start(t); o.stop(t + dur * 2);
+    });
+  } catch (e) {}
+}
+const sfx = {
+  right: () => tone([660, 880]),
+  wrong: () => tone([220, 165], .15, "square"),
+  win:   () => tone([523, 659, 784, 1047], .13),
+  lose:  () => tone([392, 330, 262], .2, "triangle"),
+};
+
+// ---------- screens ----------
+function show(id) {
+  document.querySelectorAll(".screen").forEach(s => s.classList.toggle("active", s.id === id));
+  document.body.classList.toggle("on-start", id === "start");
+  window.scrollTo(0, 0);
+}
+
+// ---------- background scene: cover the screen, but always keep the whole board visible ----------
+const IMG = { w: 1673, h: 940 }, BOARD = { x: 543, y: 362, w: 588, h: 110 };
+function layoutScene() {
+  const w = innerWidth, h = innerHeight;
+  const s = Math.min(Math.max(w / IMG.w, h / IMG.h), (w - 24) / BOARD.w);
+  const iw = IMG.w * s, ih = IMG.h * s;
+  let top = h * 0.3 - (BOARD.y + BOARD.h / 2) * s;   // board sits ~30% down the screen
+  if (ih >= h) top = Math.min(0, Math.max(h - ih, top));
+  Object.assign($("sceneImg").style, { width: iw + "px", height: ih + "px", left: (w - iw) / 2 + "px", top: top + "px" });
+  $("boardTitle").style.fontSize = Math.min(BOARD.h * s * 0.42, BOARD.w * s / 9) + "px";
+  $("hero").style.minHeight = Math.max(0, top + (BOARD.y + BOARD.h) * s + 16) + "px";
+}
+addEventListener("resize", layoutScene);
+layoutScene();
+
+
+const levelName = n => LEVELS[n].name;
+const cap = t => t[0].toUpperCase() + t.slice(1);
+
+function newGame() {
+  level = 0; xp = 0; correct = 0; attempts = 0; streak = 0; bestStreak = 0;
+  wrongIds = new Set();
+  loadLevel();
+}
+
+async function loadLevel() {
+  $("go").disabled = $("luGo").disabled = $("again").disabled = true;
+  const r = await fetch(`/api/level/${level}?wrong=${[...wrongIds].join(",")}`);
+  qs = await r.json();
+  $("go").disabled = $("luGo").disabled = $("again").disabled = false;
+  i = 0; lives = LIVES; levelCorrect = 0; levelMistakes = [];
+  renderHearts();
+  $("streak").classList.remove("show");
+  show("quiz");
+  render();
+}
+
+function renderHearts(popIndex) {
+  $("hearts").innerHTML = Array.from({ length: LIVES }, (_, k) =>
+    `<img class="heart ${k >= lives ? "lost" : ""} ${k === popIndex ? "pop" : ""}" src="${HEART}" alt="${k < lives ? "life" : "lost life"}">`).join("");
+}
+
+function render() {
+  const q = qs[i];
+  picked = null; checked = false;
+  $("fill").style.width = `${(i / qs.length) * 100}%`;
+  $("q").className = "q " + q.type;
+  $("levelTag").textContent = `Stage ${level + 1} · ${cap(levelName(level))}`;
+  $("reviewTag").hidden = !q.review;
+  $("prompt").textContent = q.prompt;
+  const s = $("subject");
+  s.className = "subject" + (q.type === "what" ? " date" : "");
+  s.innerHTML = (q.type === "what" ? "" : `<span class="icon">📜</span>`) + "<span></span>";
+  s.lastChild.textContent = q.subject;
+  $("options").innerHTML = "";
+  q.options.forEach((text, k) => {
+    const b = document.createElement("button");
+    b.className = "opt";
+    b.innerHTML = `<span class="key">${k + 1}</span><span></span>`;
+    b.lastChild.textContent = text;
+    b.onclick = () => pick(k);
+    $("options").appendChild(b);
+  });
+  $("sheet").className = "sheet";
+}
+
+// Tapping an answer submits it, then the game moves on by itself
+const RIGHT_PAUSE = 1100, WRONG_PAUSE = 2600;   // ms; longer after a mistake to read the correct answer
+let advanceTimer;
+function pick(k) {
+  if (checked) return;
+  picked = k;
+  const ok = check();
+  advanceTimer = setTimeout(next, ok ? RIGHT_PAUSE : WRONG_PAUSE);
+}
+
+function check() {
+  const q = qs[i], opts = [...$("options").children];
+  opts.forEach(b => { b.disabled = true; b.classList.remove("sel"); });
+  opts[q.answer].classList.add("right");
+  const ok = picked === q.answer;
+  checked = true; attempts++;
+  if (ok) {
+    correct++; levelCorrect++; streak++; bestStreak = Math.max(bestStreak, streak); xp += 10;
+    wrongIds.delete(q.id);
+    sfx.right();
+    const praise = ["Nicely done!", "Correct!", "Great job!", "Excellent!", "Amazing!", "You got it!"];
+    $("badge").textContent = "✔️";
+    $("fbTitle").textContent = praise[Math.floor(Math.random() * praise.length)];
+    $("fbText").textContent = streak >= 3 ? `🔥 ${streak} in a row!` : "";
+    $("sheet").className = "sheet ok";
+  } else {
+    lives--; streak = 0;
+    wrongIds.add(q.id);
+    levelMistakes.push(q.fact);
+    sfx.wrong();
+    opts[picked].classList.add("wrong");
+    $("q").classList.add("shake");
+    setTimeout(() => $("q").classList.remove("shake"), 400);
+    renderHearts(lives);
+    $("badge").textContent = "✖️";
+    $("fbTitle").textContent = "Correct answer:";
+    $("fbText").textContent = q.fact;
+    $("sheet").className = "sheet bad";
+  }
+  $("streak").textContent = streak >= 3 ? `🔥 ${streak} in a row` : "";
+  $("streak").classList.toggle("show", streak >= 3);
+  return ok;
+}
+
+function next() {
+  i++;
+  if (lives <= 0) return gameOver();
+  if (i >= qs.length) return levelComplete();
+  render();
+}
+
+function levelComplete() {
+  $("fill").style.width = "100%";
+  xp += 5 * lives; // bonus for hearts left
+  sfx.win();
+  if (level === LEVELS.length - 1) return gameWon();
+  const done = levelName(level), upcoming = levelName(level + 1);
+  const repeats = [...wrongIds].length;
+  $("luSub").textContent = `You completed ${done}! On to the next stage.`;
+  $("luXp").textContent = xp;
+  $("luScore").textContent = `${levelCorrect}/${qs.length}`;
+  $("luStreak").textContent = bestStreak;
+  $("luNext").textContent = `Stage ${level + 2}: ${cap(upcoming)}`;
+  $("luNote").textContent = "Your hearts are refilled. " + (repeats
+    ? `${Math.min(repeats, 5)} ${repeats === 1 ? "question" : "questions"} you got wrong will come back, plus some from earlier decades.`
+    : `Some questions from earlier decades will come back to test you.`);
+  $("luGo").textContent = `Start ${upcoming}`;
+  show("levelup");
+}
+
+function endScreen({ icon, title, sub, button, mistakes, pixel = false }) {
+  $("endIcon").innerHTML = icon;
+  $("endTitle").textContent = title;
+  $("endTitle").className = pixel ? "pixel congrats" : "";
+  $("endSub").textContent = sub;
+  $("sXp").textContent = xp;
+  $("sAcc").textContent = attempts ? Math.round((correct / attempts) * 100) + "%" : "0%";
+  $("sStreak").textContent = bestStreak;
+  $("again").textContent = button;
+  const rev = $("review");
+  rev.innerHTML = "";
+  if (mistakes.length) {
+    rev.innerHTML = "<h4>Dates to review</h4><ul></ul>";
+    mistakes.forEach(m => {
+      const [d, ...rest] = m.split(": ");
+      const li = document.createElement("li");
+      li.innerHTML = "<b></b>: <span></span>";
+      li.firstChild.textContent = d;
+      li.lastChild.textContent = rest.join(": ");
+      rev.querySelector("ul").appendChild(li);
+    });
+  }
+  show("end");
+}
+
+function gameOver() {
+  sfx.lose();
+  endScreen({
+    icon: `<img class="end-heart" src="${HEART}" alt="">`,
+    title: "Out of hearts!",
+    sub: `You ran out of lives in ${levelName(level)}. Review the dates below and try the stage again!`,
+    button: `Retry ${levelName(level)}`,
+    mistakes: levelMistakes,
+  });
+  $("again").onclick = loadLevel;
+}
+
+function gameWon() {
+  endScreen({
+    icon: "🏆",
+    title: "Congratulations!",
+    sub: `You completed every stage, from ${levelName(0)} to ${levelName(LEVELS.length - 1)}!`,
+    button: "Play again",
+    mistakes: [],
+    pixel: true,
+  });
+  $("again").onclick = newGame;
+}
+
+$("go").onclick = newGame;
+$("luGo").onclick = () => { level++; loadLevel(); };
+$("home").onclick = () => show("start");
+$("quit").onclick = () => {
+  clearTimeout(advanceTimer);
+  if (confirm("Quit the game? Your progress will be lost.")) show("start");
+  else if (checked) advanceTimer = setTimeout(next, 600);
+};
+
+// keyboard: 1-4 to answer, Enter on the start and level-up screens
+document.addEventListener("keydown", e => {
+  if (e.key === "Enter") {
+    if ($("start").classList.contains("active")) return $("go").click();
+    if ($("levelup").classList.contains("active")) return $("luGo").click();
+  }
+  if (!$("quiz").classList.contains("active")) return;
+  if (!checked && /^[1-4]$/.test(e.key)) pick(+e.key - 1);
+});
+</script>
+</body>
+</html>
