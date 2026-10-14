@@ -102,7 +102,6 @@
     border: 2px solid var(--line); border-radius: 16px; padding: 14px 16px;
     font-size: clamp(17px, 4.4vw, 20px); font-weight: 800; position: relative; color: #000;
   }
-  .subject .icon { font-size: 34px; flex-shrink: 0; }
   .subject.date { font-size: clamp(24px, 6vw, 30px); font-weight: 900; color: #000; }
   .options { display: grid; gap: 10px; }
   .opt {
@@ -335,8 +334,7 @@ function render() {
   $("prompt").textContent = q.prompt;
   const s = $("subject");
   s.className = "subject" + (q.type === "what" ? " date" : "");
-  s.innerHTML = (q.type === "what" ? "" : `<span class="icon">📜</span>`) + "<span></span>";
-  s.lastChild.textContent = q.subject;
+  s.textContent = q.subject;
   $("options").innerHTML = "";
   q.options.forEach((text, k) => {
     const b = document.createElement("button");
@@ -350,7 +348,7 @@ function render() {
 }
 
 // Tapping an answer submits it, then the game moves on by itself
-const RIGHT_PAUSE = 1100, WRONG_PAUSE = 2600;   // ms; longer after a mistake to read the correct answer
+const RIGHT_PAUSE = 550, WRONG_PAUSE = 1300;   // ms; longer after a mistake to read the correct answer
 let advanceTimer;
 function pick(k) {
   if (checked) return;
