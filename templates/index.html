@@ -31,7 +31,30 @@
     padding: env(safe-area-inset-top) 16px 0; position: relative;
     background: var(--bg); box-shadow: 0 0 0 3px var(--ink);
   }
-  body.on-start .app { background: none; box-shadow: none; }
+  body.on-blue .app { background: none; box-shadow: none; }
+
+  /* ---------- quiz picker ---------- */
+  .themes-head { display: flex; align-items: center; gap: 12px; padding: 22px 0 6px; }
+  .themes-head .close { color: #fff; opacity: .8; }
+  .themes-title { margin: 0; color: #fff; font-family: "Press Start 2P", monospace; font-weight: 400;
+    font-size: clamp(16px, 4.6vw, 22px); line-height: 1.4; text-shadow: 3px 3px 0 rgba(0,0,0,.35); }
+  .themes-sub { color: #dfe6ff; font-weight: 700; margin: 4px 0 18px; }
+  .theme-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
+  .theme {
+    font: inherit; text-align: left; cursor: pointer; color: var(--ink);
+    background: #fff; border: 3px solid var(--ink); border-radius: 18px; padding: 16px 14px;
+    box-shadow: 0 5px 0 rgba(0,0,0,.25); display: flex; flex-direction: column; gap: 6px; min-height: 112px;
+  }
+  .theme:active { transform: translateY(4px); box-shadow: 0 1px 0 rgba(0,0,0,.25); }
+  .theme:hover { background: var(--navy-bg); }
+  .theme .name { font-size: clamp(18px, 4.8vw, 21px); font-weight: 900; color: var(--navy); line-height: 1.2; }
+  .theme .meta { font-size: 13px; color: var(--muted); font-weight: 700; margin-top: auto; }
+  .theme.terms { grid-column: 1 / -1; background: var(--yellow-bg); }
+  .theme.essentials { grid-column: 1 / -1; background: var(--eu-gold); }
+  .theme.essentials:hover { background: #ffd83d; }
+  .theme.essentials .name { font-family: "Press Start 2P", monospace; font-weight: 400; font-size: clamp(14px, 4vw, 17px); line-height: 1.4; }
+  .theme.essentials .meta { color: var(--navy-dark); }
+  .theme.terms:hover { background: #fbeab0; }
   .screen { display: none; flex: 1; flex-direction: column; }
   .screen.active { display: flex; }
 
@@ -180,7 +203,7 @@
   @keyframes shake { 20%,60% { transform: translateX(-6px); } 40%,80% { transform: translateX(6px); } }
 </style>
 </head>
-<body class="on-start">
+<body class="on-blue">
 <div class="app">
 
   <!-- START -->
@@ -192,9 +215,19 @@
       </div>
     </div>
     <div class="start-card">
-      <p class="sub">Work through the 1940s, 1950s and 1960s. You've got three lives each stage!</p>
+      <p class="sub">Pick the right answer. You've got three lives each stage!</p>
       <button class="btn start-btn" id="go">Start</button>
     </div>
+  </section>
+
+  <!-- CHOOSE A QUIZ -->
+  <section class="screen" id="themes">
+    <div class="themes-head">
+      <button class="close" id="themesBack" aria-label="Back to home">✕</button>
+      <h1 class="themes-title">Choose a quiz</h1>
+    </div>
+    <p class="themes-sub">Start with the essentials, then practise one period of European integration or the key economics terms.</p>
+    <div class="theme-grid" id="themeGrid"></div>
   </section>
 
   <!-- QUIZ -->
@@ -254,7 +287,7 @@
     </div>
     <div class="footer end-buttons">
       <button class="btn" id="again"></button>
-      <button class="btn ghost" id="home">Home</button>
+      <button class="btn ghost" id="home">Choose another quiz</button>
     </div>
   </section>
 
@@ -263,7 +296,9 @@
 const $ = id => document.getElementById(id);
 const LIVES = 3;
 const HEART = "{{ url_for('static', filename='heart.png') }}";
-const LEVELS = {{ levels | tojson }};
+const THEMES = {{ themes | tojson }};
+const REVIEW_HEADING = { dates: "Dates to review", terms: "Terms to review", essentials: "Answers to review" };
+let theme = 0;
 let level, qs = [], i = 0, lives, picked, checked;
 let xp, correct, attempts, streak, bestStreak;   // whole game
 let levelCorrect, levelMistakes;                  // this level
@@ -292,14 +327,26 @@ const sfx = {
 // ---------- screens ----------
 function show(id) {
   document.querySelectorAll(".screen").forEach(s => s.classList.toggle("active", s.id === id));
-  document.body.classList.toggle("on-start", id === "start");
+  document.body.classList.toggle("on-blue", id === "start" || id === "themes");
   window.scrollTo(0, 0);
 }
 
 
 
-const levelName = n => LEVELS[n].name;
+const stages = () => THEMES[theme].stages;
+const levelName = n => stages()[n];
 const cap = t => t[0].toUpperCase() + t.slice(1);
+
+// ---------- quiz picker ----------
+THEMES.forEach((t, k) => {
+  const b = document.createElement("button");
+  b.className = "theme" + (t.kind === "dates" ? "" : " " + t.kind);
+  const n = t.stages.length, noun = { dates: "dates", terms: "terms", essentials: "questions" }[t.kind];
+  b.innerHTML = `<span class="name"></span><span class="meta">${n} ${n === 1 ? "stage" : "stages"} · ${t.count} ${noun}</span>`;
+  b.firstChild.textContent = t.title;
+  b.onclick = () => { theme = k; newGame(); };
+  $("themeGrid").appendChild(b);
+});
 
 function newGame() {
   level = 0; xp = 0; correct = 0; attempts = 0; streak = 0; bestStreak = 0;
@@ -309,7 +356,7 @@ function newGame() {
 
 async function loadLevel() {
   $("go").disabled = $("luGo").disabled = $("again").disabled = true;
-  const r = await fetch(`/api/level/${level}?wrong=${[...wrongIds].join(",")}`);
+  const r = await fetch(`/api/theme/${theme}/stage/${level}?wrong=${[...wrongIds].join(",")}`);
   qs = await r.json();
   $("go").disabled = $("luGo").disabled = $("again").disabled = false;
   i = 0; lives = LIVES; levelCorrect = 0; levelMistakes = [];
@@ -402,7 +449,7 @@ function levelComplete() {
   $("fill").style.width = "100%";
   xp += 5 * lives; // bonus for hearts left
   sfx.win();
-  if (level === LEVELS.length - 1) return gameWon();
+  if (level === stages().length - 1) return gameWon();
   const done = levelName(level), upcoming = levelName(level + 1);
   const repeats = [...wrongIds].length;
   $("luSub").textContent = `You completed ${done}! On to the next stage.`;
@@ -411,9 +458,9 @@ function levelComplete() {
   $("luStreak").textContent = bestStreak;
   $("luNext").textContent = `Stage ${level + 2}: ${cap(upcoming)}`;
   $("luNote").textContent = "Your hearts are refilled. " + (repeats
-    ? `${Math.min(repeats, 5)} ${repeats === 1 ? "question" : "questions"} you got wrong will come back, plus some from earlier decades.`
-    : `Some questions from earlier decades will come back to test you.`);
-  $("luGo").textContent = `Start ${upcoming}`;
+    ? `${Math.min(repeats, 5)} ${repeats === 1 ? "question" : "questions"} you got wrong will come back, plus some from earlier stages.`
+    : `Some questions from earlier stages will come back to test you.`);
+  $("luGo").textContent = `Start stage ${level + 2}`;
   show("levelup");
 }
 
@@ -429,7 +476,7 @@ function endScreen({ icon, title, sub, button, mistakes, pixel = false }) {
   const rev = $("review");
   rev.innerHTML = "";
   if (mistakes.length) {
-    rev.innerHTML = "<h4>Dates to review</h4><ul></ul>";
+    rev.innerHTML = `<h4>${REVIEW_HEADING[THEMES[theme].kind]}</h4><ul></ul>`;
     mistakes.forEach(m => {
       const [d, ...rest] = m.split(": ");
       const li = document.createElement("li");
@@ -447,7 +494,7 @@ function gameOver() {
   endScreen({
     icon: `<img class="end-heart" src="${HEART}" alt="">`,
     title: "Out of hearts!",
-    sub: `You ran out of lives in ${levelName(level)}. Review the dates below and try the stage again!`,
+    sub: `You ran out of lives in ${levelName(level)}. Review the answers below and try the stage again!`,
     button: `Retry ${levelName(level)}`,
     mistakes: levelMistakes,
   });
@@ -458,7 +505,7 @@ function gameWon() {
   endScreen({
     icon: "🏆",
     title: "Congratulations!",
-    sub: `You completed every stage, from ${levelName(0)} to ${levelName(LEVELS.length - 1)}!`,
+    sub: `You completed the ${THEMES[theme].title.replace(/^The /, "")} quiz!${stages().length > 1 ? ` All ${stages().length} stages done.` : ""}`,
     button: "Play again",
     mistakes: [],
     pixel: true,
@@ -466,16 +513,17 @@ function gameWon() {
   $("again").onclick = newGame;
 }
 
-$("go").onclick = newGame;
+$("go").onclick = () => show("themes");
+$("themesBack").onclick = () => show("start");
 $("luGo").onclick = () => { level++; loadLevel(); };
-$("home").onclick = () => show("start");
+$("home").onclick = () => show("themes");
 $("quit").onclick = () => {
   clearTimeout(advanceTimer);
-  if (confirm("Quit the game? Your progress will be lost.")) show("start");
+  if (confirm("Quit this quiz? Your progress will be lost.")) show("themes");
   else if (checked) advanceTimer = setTimeout(next, 600);
 };
 
-// keyboard: 1-4 to answer, Enter on the start and level-up screens
+// keyboard: 1-4 to answer, Enter on the start and stage-complete screens
 document.addEventListener("keydown", e => {
   if (e.key === "Enter") {
     if ($("start").classList.contains("active")) return $("go").click();
