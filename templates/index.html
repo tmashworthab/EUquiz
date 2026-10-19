@@ -49,12 +49,6 @@
   .theme:hover { background: var(--navy-bg); }
   .theme .name { font-size: clamp(18px, 4.8vw, 21px); font-weight: 900; color: var(--navy); line-height: 1.2; }
   .theme .meta { font-size: 13px; color: var(--muted); font-weight: 700; margin-top: auto; }
-  .theme.terms { grid-column: 1 / -1; background: var(--yellow-bg); }
-  .theme.essentials { grid-column: 1 / -1; background: var(--eu-gold); }
-  .theme.essentials:hover { background: #ffd83d; }
-  .theme.essentials .name { font-family: "Press Start 2P", monospace; font-weight: 400; font-size: clamp(14px, 4vw, 17px); line-height: 1.4; }
-  .theme.essentials .meta { color: var(--navy-dark); }
-  .theme.terms:hover { background: #fbeab0; }
   .screen { display: none; flex: 1; flex-direction: column; }
   .screen.active { display: flex; }
 
@@ -340,7 +334,7 @@ const cap = t => t[0].toUpperCase() + t.slice(1);
 // ---------- quiz picker ----------
 THEMES.forEach((t, k) => {
   const b = document.createElement("button");
-  b.className = "theme" + (t.kind === "dates" ? "" : " " + t.kind);
+  b.className = "theme";
   const n = t.stages.length, noun = { dates: "dates", terms: "terms", essentials: "questions" }[t.kind];
   b.innerHTML = `<span class="name"></span><span class="meta">${n} ${n === 1 ? "stage" : "stages"} · ${t.count} ${noun}</span>`;
   b.firstChild.textContent = t.title;
