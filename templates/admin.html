@@ -139,8 +139,10 @@ const KIND_INFO = {
                  cols: { name: "Name", known_for: "Known for" } },
   term:        { title: "Key terms", how: 'Asked as "What does this term mean?" and "Which term matches this definition?"',
                  cols: { term: "Term", definition: "Definition", section: "Section (wrong answers come from the same section)" } },
+  explain:     { title: "Explain questions", how: "Students type an explanation, then compare it with your model answer and mark themselves",
+                 cols: { question: "Question", answer: "Model answer" } },
 };
-const NARROW = new Set(["date", "name", "term", "section"]);
+const NARROW = new Set(["date", "name", "term", "section", "question"]);
 
 let data, theme = 0, stage = 0, dirty = false;
 

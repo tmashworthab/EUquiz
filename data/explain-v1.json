@@ -1,0 +1,346 @@
+{
+ "name": "explain-v1",
+ "add": [
+  {
+   "theme": "The essentials",
+   "stage": "the founding treaties",
+   "items": [
+    {
+     "kind": "explain",
+     "question": "What was the Treaty of Paris (1951)?",
+     "answer": "Signed in April 1951 by France, West Germany, Italy and the Benelux countries, it created the European Coal and Steel Community (ECSC). It put the six countries' coal and steel production under a common High Authority, as proposed in the Schuman Declaration."
+    },
+    {
+     "kind": "explain",
+     "question": "What were the Treaties of Rome?",
+     "answer": "Signed in March 1957 by the six ECSC members (France, West Germany, Italy, Belgium, the Netherlands and Luxembourg), they created the European Economic Community (EEC), with a common market and customs union, and Euratom for cooperation on atomic energy. They came into force in January 1958."
+    },
+    {
+     "kind": "explain",
+     "question": "What was the Maastricht Treaty?",
+     "answer": "The Treaty on European Union, signed in February 1992 and in force from November 1993. It created the European Union, set the rules and convergence criteria for a single currency, and added a common foreign and security policy and cooperation on justice and home affairs."
+    },
+    {
+     "kind": "explain",
+     "question": "What was the Lisbon Treaty?",
+     "answer": "Signed in December 2007 after the European Constitution was rejected. It extended qualified majority voting, gave the European Parliament more power, created a permanent President of the European Council, made the Charter of Fundamental Rights binding and let member states leave the EU."
+    }
+   ]
+  },
+  {
+   "theme": "The essentials",
+   "stage": "institutions and people",
+   "items": [
+    {
+     "kind": "explain",
+     "question": "What does the European Commission do?",
+     "answer": "It is the EU's executive. It proposes new EU laws, makes sure the treaties are applied and runs common policies. It was set up in January 1958 for the EEC, with Walter Hallstein as its first President."
+    },
+    {
+     "kind": "explain",
+     "question": "Who was Jean Monnet?",
+     "answer": "A French official and planner who drew up the idea behind the Schuman Declaration and became the first head of the ECSC High Authority in 1952. He is often called one of the founding fathers of European integration."
+    }
+   ]
+  },
+  {
+   "theme": "The essentials",
+   "stage": "enlargement and turning points",
+   "items": [
+    {
+     "kind": "explain",
+     "question": "What was the Empty Chair Crisis, and how did it end?",
+     "answer": "In June 1965 France, under de Gaulle, boycotted EEC Council meetings in protest at plans for more majority voting and new funding arrangements. It ended with the Luxembourg Compromise in January 1966, which let a country block a decision when it said its vital national interests were at stake."
+    },
+    {
+     "kind": "explain",
+     "question": "What was the 'big bang' enlargement?",
+     "answer": "In May 2004 the EU grew from 15 to 25 members: the Czech Republic, Slovakia, Hungary, Estonia, Latvia, Lithuania, Poland, Slovenia, Malta and Cyprus joined. It reunited much of Europe after the Cold War division."
+    }
+   ]
+  },
+  {
+   "theme": "The essentials",
+   "stage": "the key terms",
+   "items": [
+    {
+     "kind": "explain",
+     "question": "What was the Exchange Rate Mechanism (ERM)?",
+     "answer": "The core of the European Monetary System from 1979: currencies were pegged to each other within bands, with realignments possible. In the 1992 to 1993 ERM crisis, speculative attacks forced sterling and the lira out and the bands were widened to 15 per cent."
+    },
+    {
+     "kind": "explain",
+     "question": "What are the convergence criteria?",
+     "answer": "The Maastricht tests for joining the euro: low inflation, low interest rates, a budget deficit under 3 per cent of GDP, government debt under 60 per cent of GDP, and a stable exchange rate."
+    }
+   ]
+  },
+  {
+   "theme": "40s and 50s",
+   "stage": "the 1940s",
+   "items": [
+    {
+     "kind": "explain",
+     "question": "What was the Marshall Plan?",
+     "answer": "Announced by the USA in June 1947, the European Recovery Program gave large amounts of American aid to rebuild Western Europe after the war. The OEEC was set up in April 1948 to share out and manage the aid."
+    },
+    {
+     "kind": "explain",
+     "question": "What was the Treaty of Brussels (1948)?",
+     "answer": "Signed in March 1948 by Britain, France and the Benelux countries, it created the Western Union, a pact to defend each other. It was modified in 1954 to create the Western European Union (WEU)."
+    },
+    {
+     "kind": "explain",
+     "question": "What is the Council of Europe?",
+     "answer": "Founded in May 1949 by the Treaty of London, it is an intergovernmental organisation that promotes democracy, human rights and the rule of law. It drew up the European Convention on Human Rights, signed in Rome in November 1950. It is separate from the EU."
+    }
+   ]
+  },
+  {
+   "theme": "40s and 50s",
+   "stage": "the 1950s",
+   "items": [
+    {
+     "kind": "explain",
+     "question": "What was the Schuman Declaration?",
+     "answer": "In May 1950 French foreign minister Robert Schuman proposed pooling French and West German coal and steel production under a common High Authority, open to other countries, so that war between them would become impossible. It led to the ECSC."
+    },
+    {
+     "kind": "explain",
+     "question": "What was the Treaty of Paris (1951)?",
+     "answer": "Signed in April 1951 by France, West Germany, Italy and the Benelux countries, it created the European Coal and Steel Community (ECSC). It put the six countries' coal and steel production under a common High Authority, as proposed in the Schuman Declaration."
+    },
+    {
+     "kind": "explain",
+     "question": "What was the European Defence Community (EDC)?",
+     "answer": "A plan for a European army, first proposed in the Pleven Plan of October 1950. The EDC Treaty was signed in May 1952, but the French National Assembly rejected it in August 1954, so it never came into being."
+    },
+    {
+     "kind": "explain",
+     "question": "What was the Messina Conference?",
+     "answer": "A meeting of the six ECSC foreign ministers in June 1955 that relaunched European integration after the failure of the EDC. It led to the Spaak Report and then the Treaties of Rome."
+    },
+    {
+     "kind": "explain",
+     "question": "What were the Treaties of Rome?",
+     "answer": "Signed in March 1957 by the six ECSC members (France, West Germany, Italy, Belgium, the Netherlands and Luxembourg), they created the European Economic Community (EEC), with a common market and customs union, and Euratom for cooperation on atomic energy. They came into force in January 1958."
+    }
+   ]
+  },
+  {
+   "theme": "60s and 70s",
+   "stage": "the 1960s",
+   "items": [
+    {
+     "kind": "explain",
+     "question": "What was the Yaoundé Convention?",
+     "answer": "Signed in July 1963, it linked the EEC with 18 African states, mostly former colonies of the member states, giving them trade preferences and development aid."
+    },
+    {
+     "kind": "explain",
+     "question": "What was the Empty Chair Crisis, and how did it end?",
+     "answer": "In June 1965 France, under de Gaulle, boycotted EEC Council meetings in protest at plans for more majority voting and new funding arrangements. It ended with the Luxembourg Compromise in January 1966, which let a country block a decision when it said its vital national interests were at stake."
+    },
+    {
+     "kind": "explain",
+     "question": "What was the Merger Treaty?",
+     "answer": "Signed in April 1965 and in force from July 1967, it merged the separate executives of the ECSC, the EEC and Euratom into a single Commission and a single Council."
+    },
+    {
+     "kind": "explain",
+     "question": "What was the Hague Summit (1969)?",
+     "answer": "A meeting of EEC leaders in December 1969, after de Gaulle had left office, that set the agenda of 'completion, deepening, enlargement'. It opened the way to British membership, and Brandt and Pompidou launched plans for monetary union."
+    }
+   ]
+  },
+  {
+   "theme": "60s and 70s",
+   "stage": "the 1970s",
+   "items": [
+    {
+     "kind": "explain",
+     "question": "What was the Werner Report?",
+     "answer": "A report that set out the first plan for economic and monetary union in Europe, including narrowing the margins within which exchange rates could move."
+    },
+    {
+     "kind": "explain",
+     "question": "What was the 'Snake in the tunnel'?",
+     "answer": "A European arrangement from April 1972 to keep member states' currencies within narrow bands of each other after the USA broke the dollar's link to gold. It kept losing members and became a Deutsche Mark zone."
+    },
+    {
+     "kind": "explain",
+     "question": "What was the European Monetary System (EMS)?",
+     "answer": "Created in 1979 by Helmut Schmidt and Valéry Giscard d'Estaing to stabilise European currencies. Its core was the Exchange Rate Mechanism, with the European Currency Unit (ECU) as the reference point."
+    }
+   ]
+  },
+  {
+   "theme": "80s and 90s",
+   "stage": "the 1980s",
+   "items": [
+    {
+     "kind": "explain",
+     "question": "What was the Single European Act?",
+     "answer": "Signed in 1986 and in force from 1987, it was the first big reform of the EEC treaties. It brought in qualified majority voting for single market laws and set the goal of completing the single market by 1992."
+    },
+    {
+     "kind": "explain",
+     "question": "What was the Schengen Agreement?",
+     "answer": "Signed in 1985 by France, West Germany and the Benelux countries, it began cooperation on removing border checks between them. It took effect in March 1995, allowing travel without passport controls, and the Treaty of Amsterdam later brought it into EU law."
+    }
+   ]
+  },
+  {
+   "theme": "80s and 90s",
+   "stage": "the 1990s",
+   "items": [
+    {
+     "kind": "explain",
+     "question": "What was the Maastricht Treaty?",
+     "answer": "The Treaty on European Union, signed in February 1992 and in force from November 1993. It created the European Union, set the rules and convergence criteria for a single currency, and added a common foreign and security policy and cooperation on justice and home affairs."
+    },
+    {
+     "kind": "explain",
+     "question": "What was the Treaty of Amsterdam?",
+     "answer": "Signed in October 1997, it prepared the EU for 10 new members, brought the Schengen rules into EU law, strengthened the common foreign and security policy with a High Representative, expanded Europol's powers and extended qualified majority voting."
+    },
+    {
+     "kind": "explain",
+     "question": "What was the European Security and Defence Policy (ESDP)?",
+     "answer": "Created in June 1999 after the Kosovo War showed how much the EU depended on NATO, it gave the EU a framework for joint military and civilian crisis-management operations. It was replaced by the CSDP under the Lisbon Treaty."
+    }
+   ]
+  },
+  {
+   "theme": "2000s",
+   "stage": "the 2000s",
+   "items": [
+    {
+     "kind": "explain",
+     "question": "What was the Treaty of Nice?",
+     "answer": "Signed in February 2001 and in force from February 2003, it reformed the EU's institutions so that they could work in an enlarged union of 25 or more member states."
+    },
+    {
+     "kind": "explain",
+     "question": "What happened to the European Constitution?",
+     "answer": "After the 2001 Laeken Declaration, a convention drafted a Constitution for Europe, which the European Council adopted in June 2004. Voters in France and the Netherlands rejected it in May and June 2005, and most of its reforms were later put into the Lisbon Treaty."
+    },
+    {
+     "kind": "explain",
+     "question": "What was the Lisbon Treaty?",
+     "answer": "Signed in December 2007 after the European Constitution was rejected. It extended qualified majority voting, gave the European Parliament more power, created a permanent President of the European Council, made the Charter of Fundamental Rights binding and let member states leave the EU."
+    },
+    {
+     "kind": "explain",
+     "question": "What was the 'big bang' enlargement?",
+     "answer": "In May 2004 the EU grew from 15 to 25 members: the Czech Republic, Slovakia, Hungary, Estonia, Latvia, Lithuania, Poland, Slovenia, Malta and Cyprus joined. It reunited much of Europe after the Cold War division."
+    }
+   ]
+  },
+  {
+   "theme": "2010s and 2020s",
+   "stage": "the 2010s",
+   "items": [
+    {
+     "kind": "explain",
+     "question": "What was the Brexit referendum?",
+     "answer": "In June 2016 voters in the United Kingdom chose to leave the European Union. After long negotiations, the UK formally left in January 2020."
+    },
+    {
+     "kind": "explain",
+     "question": "What is PESCO?",
+     "answer": "Permanent Structured Cooperation, launched in 2017: a framework for member states to work more closely on defence projects, build shared military capabilities and make Europe less dependent on outside powers for its security."
+    },
+    {
+     "kind": "explain",
+     "question": "What is the European Green Deal?",
+     "answer": "The EU's plan, unveiled in December 2019, to make Europe climate neutral by 2050, with closer coordination on energy and environmental policy."
+    }
+   ]
+  },
+  {
+   "theme": "2010s and 2020s",
+   "stage": "the 2020s",
+   "items": [
+    {
+     "kind": "explain",
+     "question": "What is NextGenerationEU?",
+     "answer": "A 750 billion euro recovery fund launched in 2021 to help EU economies recover from the Covid-19 pandemic. It was paid for by joint EU borrowing, a big step towards deeper fiscal integration."
+    },
+    {
+     "kind": "explain",
+     "question": "What is the Strategic Compass?",
+     "answer": "The EU's first common defence and security strategy, adopted in March 2022, including plans for a rapid deployment force of up to 5,000 troops by 2025."
+    },
+    {
+     "kind": "explain",
+     "question": "What is ReArm Europe?",
+     "answer": "A defence-investment package adopted in March 2025, including 150 billion euros of joint borrowing and looser fiscal rules so that member states can spend more on defence."
+    }
+   ]
+  },
+  {
+   "theme": "Key terms",
+   "stage": "economics: money and exchange rates",
+   "items": [
+    {
+     "kind": "explain",
+     "question": "What is the difference between a fixed and a floating exchange rate?",
+     "answer": "With a fixed exchange rate, the government sets an official rate and promises to keep it there. With a floating exchange rate, the rate is set by supply and demand in the markets."
+    },
+    {
+     "kind": "explain",
+     "question": "What is the difference between devaluation and depreciation?",
+     "answer": "Devaluation is a government officially lowering its currency's fixed value. Depreciation is a currency falling in value through market forces rather than a government decision."
+    },
+    {
+     "kind": "explain",
+     "question": "What was the gold-exchange standard?",
+     "answer": "A diluted gold standard in which only one currency, the US dollar under Bretton Woods, was tied to gold, and other currencies were tied to the dollar."
+    }
+   ]
+  },
+  {
+   "theme": "Key terms",
+   "stage": "economics: markets and policy",
+   "items": [
+    {
+     "kind": "explain",
+     "question": "What is a speculative attack?",
+     "answer": "Investors selling a currency en masse because they expect it to be devalued, which can force the devaluation to happen. Sterling in 1992 is the famous example."
+    },
+    {
+     "kind": "explain",
+     "question": "What is the difference between monetary and fiscal policy?",
+     "answer": "Monetary policy is decisions about interest rates and the money supply, made by the central bank. Fiscal policy is decisions about government spending and taxation, made by governments."
+    },
+    {
+     "kind": "explain",
+     "question": "What is stagflation?",
+     "answer": "Inflation combined with a stagnant economy and rising unemployment. It was the defining economic problem of the 1970s."
+    }
+   ]
+  },
+  {
+   "theme": "Key terms",
+   "stage": "economics: systems and EMU",
+   "items": [
+    {
+     "kind": "explain",
+     "question": "What was the Bretton Woods system, and how did it end?",
+     "answer": "The post-1944 monetary order in which currencies were pegged to the US dollar and the dollar could be swapped for gold at 35 dollars an ounce. It effectively ended in August 1971, when Nixon closed the gold window."
+    },
+    {
+     "kind": "explain",
+     "question": "What was the Triffin dilemma?",
+     "answer": "The flaw in Bretton Woods: the world needed ever more dollars, but the more dollars there were, the less believable the US promise to swap them for gold."
+    },
+    {
+     "kind": "explain",
+     "question": "What is an optimum currency area?",
+     "answer": "An economic theory of when countries benefit from sharing a currency, for example when they have similar economies, mobile workers and face the same shocks. Critics said the eurozone was not one."
+    }
+   ]
+  }
+ ]
+}

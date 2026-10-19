@@ -144,6 +144,21 @@
   .when .options { grid-template-columns: 1fr 1fr; }
   .when .opt { justify-content: center; text-align: center; font-size: clamp(16px, 4.4vw, 19px); }
   .when .opt .key { display: none; }
+  .explain .subject { font-size: clamp(19px, 5vw, 23px); font-weight: 900; }
+  .explain-input {
+    width: 100%; min-height: 130px; resize: vertical; font: inherit; font-weight: 700; font-size: 17px; color: #000;
+    border: 2px solid var(--line); border-bottom-width: 4px; border-radius: 16px; padding: 12px 14px; background: #f7f8fa;
+  }
+  .explain-input:focus { outline: none; border-color: var(--navy-line); background: #fff; }
+  .explain-input:disabled { background: var(--grey-bg); color: var(--grey-dark); }
+  .explain-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .explain-actions .btn { font-size: 15px; padding: 13px 10px; }
+  .model { border: 2px solid var(--navy-line); background: var(--navy-bg); border-radius: 16px; padding: 12px 14px; animation: up .25s ease-out; }
+  .model .lbl { font-size: 13px; text-transform: uppercase; letter-spacing: .5px; color: var(--navy); margin-bottom: 4px; }
+  .model p { margin: 0; font-weight: 700; color: #000; line-height: 1.45; }
+  .selfq { margin: 0; text-align: center; color: var(--muted); }
+  .btn.good { background: var(--green); box-shadow: 0 4px 0 var(--green-dark); }
+  .btn.bad { background: var(--red); box-shadow: 0 4px 0 var(--red-dark); }
   .level-tag { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 14px; color: var(--muted); letter-spacing: .5px; text-transform: uppercase; }
   .level-tag .review-tag { background: var(--yellow-bg); color: var(--navy-dark); border: 2px solid var(--yellow); border-radius: 99px; padding: 2px 10px; font-size: 12px; }
   .pixel { font-family: "Press Start 2P", monospace; font-weight: 400; }
@@ -377,6 +392,7 @@ function render() {
   s.className = "subject" + (q.type === "what" ? " date" : "");
   s.textContent = q.subject;
   $("options").innerHTML = "";
+  if (q.type === "explain") renderExplain(q);
   q.options.forEach((text, k) => {
     const b = document.createElement("button");
     b.className = "opt";
@@ -403,6 +419,44 @@ function check() {
   opts.forEach(b => { b.disabled = true; b.classList.remove("sel"); });
   opts[q.answer].classList.add("right");
   const ok = picked === q.answer;
+  if (!ok) opts[picked].classList.add("wrong");
+  return score(q, ok);
+}
+
+// "Explain in your own words": type an answer, see the model answer, then mark yourself
+function renderExplain(q) {
+  $("options").innerHTML = `
+    <textarea class="explain-input" id="exText" placeholder="Type your explanation…" aria-label="Your explanation"></textarea>
+    <div id="exArea"><div class="explain-actions">
+      <button class="btn" id="exCheck" disabled>Check my answer</button>
+      <button class="btn ghost" id="exSkip">I don't know</button>
+    </div></div>`;
+  $("exText").oninput = () => { $("exCheck").disabled = !$("exText").value.trim(); };
+  $("exCheck").onclick = () => revealModel(q, true);
+  $("exSkip").onclick = () => revealModel(q, false);
+}
+
+function revealModel(q, attempted) {
+  $("exText").disabled = true;
+  $("exArea").innerHTML = `<div class="model"><div class="lbl">Model answer</div><p></p></div>` + (attempted
+    ? `<p class="selfq" style="margin-top:12px">Did your answer cover the main points?</p>
+       <div class="explain-actions" style="margin-top:10px">
+         <button class="btn good" id="exGot">I got it</button><button class="btn bad" id="exMissed">I missed it</button>
+       </div>`
+    : `<div class="explain-actions" style="margin-top:12px;grid-template-columns:1fr"><button class="btn bad" id="exMissed">Continue</button></div>`);
+  $("exArea").querySelector(".model p").textContent = q.answer;
+  const mark = ok => {
+    if (checked) return;
+    $("exArea").querySelectorAll("button").forEach(b => b.disabled = true);
+    picked = 0;
+    advanceTimer = setTimeout(next, score(q, ok) ? RIGHT_PAUSE : WRONG_PAUSE);
+  };
+  if (attempted) $("exGot").onclick = () => mark(true);
+  $("exMissed").onclick = () => mark(false);
+  $("exArea").scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+function score(q, ok) {
   checked = true; attempts++;
   if (ok) {
     correct++; levelCorrect++; streak++; bestStreak = Math.max(bestStreak, streak); xp += 10;
@@ -416,15 +470,14 @@ function check() {
   } else {
     lives--; streak = 0;
     wrongIds.add(q.id);
-    levelMistakes.push(q.fact);
+    levelMistakes.push(q);
     sfx.wrong();
-    opts[picked].classList.add("wrong");
     $("q").classList.add("shake");
     setTimeout(() => $("q").classList.remove("shake"), 400);
     renderHearts(lives);
     $("badge").textContent = "✖️";
-    $("fbTitle").textContent = "Correct answer:";
-    $("fbText").textContent = q.fact;
+    $("fbTitle").textContent = q.type === "explain" ? "Keep practising!" : "Correct answer:";
+    $("fbText").textContent = q.type === "explain" ? "" : q.fact;
     $("sheet").className = "sheet bad";
   }
   $("streak").textContent = streak >= 3 ? `${streak} in a row` : "";
@@ -472,11 +525,10 @@ function endScreen({ icon, title, sub, button, mistakes, pixel = false }) {
   if (mistakes.length) {
     rev.innerHTML = `<h4>${REVIEW_HEADING[THEMES[theme].kind]}</h4><ul></ul>`;
     mistakes.forEach(m => {
-      const [d, ...rest] = m.split(": ");
       const li = document.createElement("li");
-      li.innerHTML = "<b></b>: <span></span>";
-      li.firstChild.textContent = d;
-      li.lastChild.textContent = rest.join(": ");
+      li.innerHTML = "<b></b> <span></span>";
+      li.firstChild.textContent = m.fact_title.endsWith("?") ? m.fact_title : m.fact_title + ":";
+      li.lastChild.textContent = m.fact_text;
       rev.querySelector("ul").appendChild(li);
     });
   }
@@ -524,6 +576,10 @@ document.addEventListener("keydown", e => {
     if ($("levelup").classList.contains("active")) return $("luGo").click();
   }
   if (!$("quiz").classList.contains("active")) return;
+  if (qs[i].type === "explain") {
+    if (e.key === "Enter" && (e.metaKey || e.ctrlKey) && $("exCheck") && !$("exCheck").disabled) $("exCheck").click();
+    return;
+  }
   if (!checked && /^[1-4]$/.test(e.key)) pick(+e.key - 1);
 });
 </script>

@@ -42,8 +42,9 @@ KINDS = {  # the fields each type of row has
     "institution": ["date", "name", "note"],
     "term": ["term", "definition", "section"],
     "person": ["name", "known_for"],
+    "explain": ["question", "answer"],
 }
-PLURALS = {"event": "events", "institution": "institutions", "term": "terms", "person": "people"}
+PLURALS = {"event": "events", "institution": "institutions", "term": "terms", "person": "people", "explain": "questions"}
 DATED_KINDS = {"event", "institution"}
 THEME_KINDS = {"dates", "terms", "essentials"}
 
@@ -96,7 +97,16 @@ def fact_of(item):
         "institution": lambda: f"{item['date']}: {item['name']} founded ({item['note']})",
         "term": lambda: f"{item['term']}: {item['definition']}",
         "person": lambda: f"{item['name']}: {item['known_for']}",
+        "explain": lambda: f"{item['question']} {item['answer']}",
     }[item["kind"]]()
+
+
+def fact_parts(item):
+    """(bold part, rest) for the end-of-quiz review list."""
+    if item["kind"] == "explain":
+        return item["question"], item["answer"]
+    head, _, rest = item["fact"].partition(": ")
+    return head, rest
 
 
 def shuffled(wrong, right, **question):
@@ -130,6 +140,7 @@ class Quiz:
             "institution": (self.institution_when, self.institution_which),
             "term": (self.term_meaning, self.term_name),
             "person": (self.person_who, self.person_known_for),
+            "explain": (self.explain,),
         }
 
     # ----- dated events -----
@@ -186,11 +197,17 @@ class Quiz:
         return shuffled(wrong, it["known_for"], type="what", prompt="What is this person known for?",
                         subject=it["name"])
 
+    # ----- explain in your own words (typed, then self-marked) -----
+    def explain(self, it):
+        return {"type": "explain", "prompt": "Explain in your own words", "subject": it["question"],
+                "answer": it["answer"], "options": []}
+
     # ----- building a stage -----
     def question(self, item_id, review=False):
         it = self.items[item_id]
         q = random.choice(self.question_types[it["kind"]])(it)
-        q.update(id=item_id, review=review, fact=it["fact"])
+        title, text = fact_parts(it)
+        q.update(id=item_id, review=review, fact=it["fact"], fact_title=title, fact_text=text)
         return q
 
     def stage(self, t, n, wrong):
@@ -246,7 +263,7 @@ def validate(data):
         for make in quiz.question_types[it["kind"]]:
             try:
                 q = make(it)
-                assert len(set(q["options"])) == 4
+                assert it["kind"] == "explain" or len(set(q["options"])) == 4
             except (ValueError, AssertionError, IndexError):
                 theme = data["themes"][it["theme"]]
                 return (f"'{theme['title']}', stage {it['stage'] + 1}: '{it['fact'][:60]}' can't be turned into "
@@ -254,15 +271,39 @@ def validate(data):
     return None
 
 
-def clean(data):
+def clean(data, applied=()):
     """Keep only the known fields, with surrounding spaces trimmed."""
-    return {"themes": [
+    return {"applied": list(applied), "themes": [
         {"title": t["title"].strip(), "kind": t["kind"],
          "stages": [{"name": s["name"].strip(),
                      "items": [{"kind": it["kind"], **{f: it[f].strip() for f in KINDS[it["kind"]]}}
                                for it in s["items"]]}
                     for s in t["stages"]]}
         for t in data["themes"]]}
+
+
+# One-off additions to the questions, e.g. data/explain-v1.json. Each is merged into the live
+# quiz.json once (recorded under "applied"), so edits made in /admin are never overwritten.
+MIGRATIONS = ["explain-v1"]
+
+
+def apply_migrations(data):
+    changed = False
+    for name in MIGRATIONS:
+        if name in data.get("applied", []):
+            continue
+        with open(os.path.join(BASE_DIR, "data", f"{name}.json"), encoding="utf-8") as f:
+            patch = json.load(f)
+        for block in patch["add"]:
+            theme = next((t for t in data["themes"] if t["title"].lower() == block["theme"].lower()), None)
+            stage = theme and next((s for s in theme["stages"] if s["name"].lower() == block["stage"].lower()), None)
+            if not stage:
+                continue   # quiz or stage renamed/deleted in /admin: skip rather than guess
+            have = {json.dumps(it, sort_keys=True) for it in stage["items"]}
+            stage["items"] += [it for it in block["items"] if json.dumps(it, sort_keys=True) not in have]
+        data.setdefault("applied", []).append(name)
+        changed = True
+    return changed
 
 
 _quiz, _loaded_mtime = None, None
@@ -277,12 +318,16 @@ def quiz():
     mtime = os.path.getmtime(DATA_FILE)
     if _quiz is None or mtime != _loaded_mtime:
         with open(DATA_FILE, encoding="utf-8") as f:
-            _quiz, _loaded_mtime = Quiz(json.load(f)), mtime
+            data = json.load(f)
+        if apply_migrations(data):
+            save(data)
+            mtime = os.path.getmtime(DATA_FILE)
+        _quiz, _loaded_mtime = Quiz(data), mtime
     return _quiz
 
 
 def save(data):
-    tmp = DATA_FILE + ".tmp"
+    tmp = f"{DATA_FILE}.{os.getpid()}.tmp"
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=1)
     os.replace(tmp, DATA_FILE)
@@ -350,7 +395,7 @@ def admin_data():
     problem = validate(data)
     if problem:
         return jsonify(ok=False, error=problem), 400
-    data = clean(data)
+    data = clean(data, applied=quiz().data.get("applied", []))
     save(data)
     return jsonify(ok=True, count=sum(len(s["items"]) for t in data["themes"] for s in t["stages"]))
 
