@@ -417,7 +417,7 @@ function check() {
     const praise = ["Nicely done!", "Correct!", "Great job!", "Excellent!", "Amazing!", "You got it!"];
     $("badge").textContent = "✔️";
     $("fbTitle").textContent = praise[Math.floor(Math.random() * praise.length)];
-    $("fbText").textContent = streak >= 3 ? `🔥 ${streak} in a row!` : "";
+    $("fbText").textContent = streak >= 3 ? `${streak} in a row!` : "";
     $("sheet").className = "sheet ok";
   } else {
     lives--; streak = 0;
@@ -433,7 +433,7 @@ function check() {
     $("fbText").textContent = q.fact;
     $("sheet").className = "sheet bad";
   }
-  $("streak").textContent = streak >= 3 ? `🔥 ${streak} in a row` : "";
+  $("streak").textContent = streak >= 3 ? `${streak} in a row` : "";
   $("streak").classList.toggle("show", streak >= 3);
   return ok;
 }
