@@ -1,0 +1,1568 @@
+{
+ "themes": [
+  {
+   "title": "The essentials",
+   "kind": "essentials",
+   "stages": [
+    {
+     "name": "the founding treaties",
+     "items": [
+      {
+       "kind": "event",
+       "date": "May 1950",
+       "event": "Schuman Declaration proposes pooling coal and steel"
+      },
+      {
+       "kind": "event",
+       "date": "April 1951",
+       "event": "Treaty of Paris creates the European Coal and Steel Community (ECSC)"
+      },
+      {
+       "kind": "event",
+       "date": "March 1957",
+       "event": "Treaties of Rome signed, creating the EEC and Euratom"
+      },
+      {
+       "kind": "event",
+       "date": "January 1958",
+       "event": "Treaties of Rome come into force: the EEC and Euratom begin work"
+      },
+      {
+       "kind": "event",
+       "date": "April 1965",
+       "event": "Merger Treaty signed, combining the executives of the three Communities"
+      },
+      {
+       "kind": "event",
+       "date": "1985",
+       "event": "Schengen Agreement signed by five founding states, beginning border-free travel cooperation"
+      },
+      {
+       "kind": "event",
+       "date": "1986",
+       "event": "Single European Act signed: Qualified Majority Voting and a promise of a single market by 1992"
+      },
+      {
+       "kind": "event",
+       "date": "February 1992",
+       "event": "Maastricht Treaty (Treaty on European Union) signed, creating the European Union"
+      },
+      {
+       "kind": "event",
+       "date": "November 1993",
+       "event": "Maastricht Treaty comes into force after a tense ratification, including close Danish and French referendums"
+      },
+      {
+       "kind": "event",
+       "date": "October 1997",
+       "event": "Treaty of Amsterdam signed: prepares for 10 new members, brings in Schengen and creates a High Representative for foreign policy"
+      },
+      {
+       "kind": "event",
+       "date": "February 2001",
+       "event": "Nice Treaty signed, reforming EU institutions for an enlarged union"
+      },
+      {
+       "kind": "event",
+       "date": "December 2007",
+       "event": "Lisbon Treaty signed: more QMV, a permanent President of the European Council and a binding Charter of Fundamental Rights"
+      },
+      {
+       "kind": "event",
+       "date": "January 1999",
+       "event": "The euro is introduced for commercial and financial transactions (Denmark, Sweden and the UK opt out)"
+      },
+      {
+       "kind": "event",
+       "date": "January 2002",
+       "event": "Euro notes and coins become legal currency in 12 EU countries"
+      }
+     ]
+    },
+    {
+     "name": "institutions and people",
+     "items": [
+      {
+       "kind": "institution",
+       "date": "September 1952",
+       "name": "European Parliament",
+       "note": "first met as the Common Assembly of the ECSC"
+      },
+      {
+       "kind": "institution",
+       "date": "September 1952",
+       "name": "Council of the European Union",
+       "note": "first met as the ECSC Special Council of Ministers"
+      },
+      {
+       "kind": "institution",
+       "date": "December 1952",
+       "name": "Court of Justice of the European Union",
+       "note": "set up as the Court of Justice of the ECSC"
+      },
+      {
+       "kind": "institution",
+       "date": "January 1958",
+       "name": "European Commission",
+       "note": "set up as the Commission of the EEC, with Walter Hallstein as President"
+      },
+      {
+       "kind": "institution",
+       "date": "December 1974",
+       "name": "European Council",
+       "note": "created at the Paris Summit of heads of government"
+      },
+      {
+       "kind": "institution",
+       "date": "October 1977",
+       "name": "European Court of Auditors",
+       "note": "first met in Luxembourg"
+      },
+      {
+       "kind": "institution",
+       "date": "June 1998",
+       "name": "European Central Bank",
+       "note": "set up in Frankfurt ahead of the euro"
+      },
+      {
+       "kind": "person",
+       "name": "Robert Schuman",
+       "known_for": "Proposed pooling coal and steel production in his 1950 Declaration"
+      },
+      {
+       "kind": "person",
+       "name": "Jean Monnet",
+       "known_for": "First head of the ECSC High Authority (1952)"
+      },
+      {
+       "kind": "person",
+       "name": "Walter Hallstein",
+       "known_for": "First President of the European Commission (1958)"
+      },
+      {
+       "kind": "person",
+       "name": "Charles de Gaulle",
+       "known_for": "French President who vetoed Britain's EEC membership in 1963 and 1967"
+      },
+      {
+       "kind": "person",
+       "name": "Winston Churchill",
+       "known_for": "Called for a 'United States of Europe' in his 1946 Zurich speech"
+      },
+      {
+       "kind": "person",
+       "name": "Paul-Henri Spaak",
+       "known_for": "Wrote the 1956 report recommending a common market"
+      },
+      {
+       "kind": "person",
+       "name": "René Pleven",
+       "known_for": "Proposed a European army in 1950"
+      },
+      {
+       "kind": "person",
+       "name": "Harold Macmillan",
+       "known_for": "Prime Minister behind Britain's first application to join the EEC (1961)"
+      },
+      {
+       "kind": "person",
+       "name": "Harold Wilson",
+       "known_for": "Prime Minister behind Britain's second application to join the EEC (1967)"
+      },
+      {
+       "kind": "person",
+       "name": "Richard Nixon",
+       "known_for": "US President who closed the gold window in 1971, effectively ending Bretton Woods"
+      },
+      {
+       "kind": "person",
+       "name": "François Mitterrand",
+       "known_for": "French President who tried Keynesian policies in 1981 to 1983, then switched to the 'franc fort'"
+      }
+     ]
+    },
+    {
+     "name": "enlargement and turning points",
+     "items": [
+      {
+       "kind": "event",
+       "date": "June 1947",
+       "event": "Marshall Plan announced: US aid to rebuild Europe"
+      },
+      {
+       "kind": "event",
+       "date": "September 1946",
+       "event": "Churchill's Zurich speech calls for a 'United States of Europe'"
+      },
+      {
+       "kind": "event",
+       "date": "January 1963",
+       "event": "De Gaulle vetoes Britain's application to the EEC"
+      },
+      {
+       "kind": "event",
+       "date": "June 1965",
+       "event": "Empty Chair Crisis: France boycotts EEC Council meetings"
+      },
+      {
+       "kind": "event",
+       "date": "January 1966",
+       "event": "Luxembourg Compromise ends the Empty Chair Crisis"
+      },
+      {
+       "kind": "event",
+       "date": "July 1968",
+       "event": "EEC customs union completed: internal tariffs abolished and common external tariff"
+      },
+      {
+       "kind": "event",
+       "date": "December 1969",
+       "event": "Hague Summit sets 'completion, deepening, enlargement' agenda; Brandt and Pompidou launch plans for monetary union"
+      },
+      {
+       "kind": "event",
+       "date": "January 1973",
+       "event": "First enlargement: the UK, Denmark and Ireland join"
+      },
+      {
+       "kind": "event",
+       "date": "1981",
+       "event": "Second enlargement: Greece joins the EEC"
+      },
+      {
+       "kind": "event",
+       "date": "1986",
+       "event": "Third enlargement: Spain and Portugal join the EEC"
+      },
+      {
+       "kind": "event",
+       "date": "1989",
+       "event": "Fall of the Berlin Wall"
+      },
+      {
+       "kind": "event",
+       "date": "October 1990",
+       "event": "Reunification of Germany"
+      },
+      {
+       "kind": "event",
+       "date": "January 1993",
+       "event": "Launch of the European Single Market"
+      },
+      {
+       "kind": "event",
+       "date": "January 1995",
+       "event": "Enlargement: Austria, Sweden and Finland join"
+      },
+      {
+       "kind": "event",
+       "date": "May 2004",
+       "event": "'Big bang' enlargement: the EU grows from 15 to 25 members"
+      },
+      {
+       "kind": "event",
+       "date": "January 2007",
+       "event": "Sixth enlargement: Bulgaria and Romania join the EU"
+      },
+      {
+       "kind": "event",
+       "date": "July 2013",
+       "event": "Seventh enlargement: Croatia joins the EU"
+      },
+      {
+       "kind": "event",
+       "date": "June 2016",
+       "event": "The UK votes to leave the EU in the Brexit referendum"
+      },
+      {
+       "kind": "event",
+       "date": "January 2020",
+       "event": "The United Kingdom formally leaves the EU"
+      }
+     ]
+    },
+    {
+     "name": "the key terms",
+     "items": [
+      {
+       "kind": "term",
+       "term": "Bretton Woods system",
+       "definition": "The post-1944 monetary order: currencies pegged to the dollar, the dollar convertible to gold at $35 an ounce for governments.",
+       "section": "Key systems and policies"
+      },
+      {
+       "kind": "term",
+       "term": "The Snake",
+       "definition": "The European arrangement from 1972 to keep EC currencies close together. It kept losing members and became a Deutsche Mark zone.",
+       "section": "Key systems and policies"
+      },
+      {
+       "kind": "term",
+       "term": "European Monetary System (EMS)",
+       "definition": "The 1979 system created by Schmidt and Giscard to stabilise European currencies.",
+       "section": "Key systems and policies"
+      },
+      {
+       "kind": "term",
+       "term": "Exchange Rate Mechanism (ERM)",
+       "definition": "The core of the EMS: currencies pegged within bands, with realignments possible.",
+       "section": "Key systems and policies"
+      },
+      {
+       "kind": "term",
+       "term": "European Currency Unit (ECU)",
+       "definition": "An accounting unit made up of a basket of EC currencies, used as the reference point for the ERM. A forerunner of the euro.",
+       "section": "Key systems and policies"
+      },
+      {
+       "kind": "term",
+       "term": "Economic and Monetary Union (EMU)",
+       "definition": "The project of a single European currency managed by a common central bank, alongside economic coordination.",
+       "section": "Concepts from the debates about EMU"
+      },
+      {
+       "kind": "term",
+       "term": "Convergence criteria",
+       "definition": "The Maastricht entry tests for the euro: low inflation, low interest rates, deficits under 3 per cent of GDP, debt under 60 per cent of GDP, and stable exchange rates.",
+       "section": "Concepts from the debates about EMU"
+      },
+      {
+       "kind": "term",
+       "term": "Stability and Growth Pact",
+       "definition": "The 1997 rules meant to keep deficits and debts within the Maastricht limits after the euro started.",
+       "section": "Concepts from the debates about EMU"
+      },
+      {
+       "kind": "term",
+       "term": "No-bailout clause",
+       "definition": "The Maastricht rule that the EU and other member states are not liable for a member's debts.",
+       "section": "Concepts from the debates about EMU"
+      },
+      {
+       "kind": "term",
+       "term": "Optimum currency area",
+       "definition": "Economic theory on when countries benefit from sharing a currency: e.g. similar economies, mobile workers and shared shocks. Critics said the eurozone was not one.",
+       "section": "Concepts from the debates about EMU"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "40s and 50s",
+   "kind": "dates",
+   "stages": [
+    {
+     "name": "the 1940s",
+     "items": [
+      {
+       "kind": "event",
+       "date": "February 1945",
+       "event": "Yalta Conference: Allied leaders plan post-war Europe"
+      },
+      {
+       "kind": "event",
+       "date": "April 1945",
+       "event": "Hitler dies in his Berlin bunker"
+      },
+      {
+       "kind": "event",
+       "date": "May 1945",
+       "event": "VE Day: Germany surrenders and the war in Europe ends"
+      },
+      {
+       "kind": "event",
+       "date": "June 1945",
+       "event": "Germany and Berlin divided into four Allied occupation zones (Berlin Declaration)"
+      },
+      {
+       "kind": "event",
+       "date": "June 1945",
+       "event": "United Nations Charter signed in San Francisco"
+      },
+      {
+       "kind": "event",
+       "date": "July - August 1945",
+       "event": "Potsdam Conference: Allies agree how to govern occupied Germany"
+      },
+      {
+       "kind": "event",
+       "date": "August 1945",
+       "event": "USA drops atomic bombs on Hiroshima and Nagasaki"
+      },
+      {
+       "kind": "event",
+       "date": "September 1945",
+       "event": "Japan surrenders: the Second World War ends, leaving Europe divided between East and West"
+      },
+      {
+       "kind": "event",
+       "date": "January 1946",
+       "event": "De Gaulle resigns as head of France's provisional government"
+      },
+      {
+       "kind": "event",
+       "date": "March 1946",
+       "event": "Churchill's 'Iron Curtain' speech at Fulton, Missouri"
+      },
+      {
+       "kind": "event",
+       "date": "September 1946",
+       "event": "Churchill's Zurich speech calls for a 'United States of Europe'"
+      },
+      {
+       "kind": "event",
+       "date": "1947",
+       "event": "Beginning of the Cold War between the USA and the Soviet Union"
+      },
+      {
+       "kind": "event",
+       "date": "March 1947",
+       "event": "Treaty of Dunkirk: Anglo-French alliance"
+      },
+      {
+       "kind": "event",
+       "date": "March 1947",
+       "event": "Truman Doctrine: USA pledges to contain communism"
+      },
+      {
+       "kind": "event",
+       "date": "June 1947",
+       "event": "Marshall Plan announced: US aid to rebuild Europe"
+      },
+      {
+       "kind": "event",
+       "date": "January 1948",
+       "event": "Benelux customs union comes into force"
+      },
+      {
+       "kind": "event",
+       "date": "February 1948",
+       "event": "Communist coup in Czechoslovakia"
+      },
+      {
+       "kind": "event",
+       "date": "March 1948",
+       "event": "Treaty of Brussels creates the Western Union defence pact"
+      },
+      {
+       "kind": "event",
+       "date": "April 1948",
+       "event": "OEEC founded to manage Marshall Plan aid"
+      },
+      {
+       "kind": "event",
+       "date": "May 1948",
+       "event": "Congress of Europe meets in The Hague"
+      },
+      {
+       "kind": "event",
+       "date": "June 1948 - May 1949",
+       "event": "Berlin Blockade and Airlift"
+      },
+      {
+       "kind": "event",
+       "date": "April 1949",
+       "event": "North Atlantic Treaty signed, creating NATO"
+      },
+      {
+       "kind": "event",
+       "date": "May 1949",
+       "event": "Council of Europe founded (Treaty of London)"
+      },
+      {
+       "kind": "event",
+       "date": "May 1949",
+       "event": "Federal Republic of Germany (West Germany) founded"
+      },
+      {
+       "kind": "event",
+       "date": "August 1949",
+       "event": "Soviet Union tests its first atomic bomb, starting the nuclear arms race"
+      },
+      {
+       "kind": "event",
+       "date": "October 1949",
+       "event": "German Democratic Republic (East Germany) founded"
+      }
+     ]
+    },
+    {
+     "name": "the 1950s",
+     "items": [
+      {
+       "kind": "event",
+       "date": "May 1950",
+       "event": "Schuman Declaration proposes pooling coal and steel"
+      },
+      {
+       "kind": "event",
+       "date": "June 1950",
+       "event": "Korean War begins as North Korea invades South Korea"
+      },
+      {
+       "kind": "event",
+       "date": "September 1950",
+       "event": "European Payments Union established"
+      },
+      {
+       "kind": "event",
+       "date": "October 1950",
+       "event": "Pleven Plan proposes a European army"
+      },
+      {
+       "kind": "event",
+       "date": "November 1950",
+       "event": "European Convention on Human Rights signed in Rome"
+      },
+      {
+       "kind": "event",
+       "date": "April 1951",
+       "event": "Treaty of Paris creates the European Coal and Steel Community (ECSC)"
+      },
+      {
+       "kind": "event",
+       "date": "May 1952",
+       "event": "European Defence Community (EDC) Treaty signed"
+      },
+      {
+       "kind": "event",
+       "date": "July 1952",
+       "event": "ECSC begins work; Jean Monnet heads the High Authority"
+      },
+      {
+       "kind": "event",
+       "date": "October 1952",
+       "event": "Britain tests its first atomic bomb (Operation Hurricane)"
+      },
+      {
+       "kind": "event",
+       "date": "November 1952",
+       "event": "USA tests the first hydrogen bomb"
+      },
+      {
+       "kind": "event",
+       "date": "March 1953",
+       "event": "Death of Stalin"
+      },
+      {
+       "kind": "event",
+       "date": "June 1953",
+       "event": "Uprising in East Germany crushed by Soviet tanks"
+      },
+      {
+       "kind": "event",
+       "date": "July 1953",
+       "event": "Korean War ends with an armistice"
+      },
+      {
+       "kind": "event",
+       "date": "August 1954",
+       "event": "French National Assembly rejects the EDC"
+      },
+      {
+       "kind": "event",
+       "date": "October 1954",
+       "event": "Paris Agreements create the Western European Union (WEU)"
+      },
+      {
+       "kind": "event",
+       "date": "November 1954 - July 1962",
+       "event": "Algerian War of Independence: Algeria wins independence from France"
+      },
+      {
+       "kind": "event",
+       "date": "May 1955",
+       "event": "West Germany joins NATO"
+      },
+      {
+       "kind": "event",
+       "date": "May 1955",
+       "event": "Warsaw Pact signed by the Soviet bloc"
+      },
+      {
+       "kind": "event",
+       "date": "June 1955",
+       "event": "Messina Conference relaunches European integration"
+      },
+      {
+       "kind": "event",
+       "date": "April 1956",
+       "event": "Spaak Report recommends a common market"
+      },
+      {
+       "kind": "event",
+       "date": "July 1956",
+       "event": "Britain proposes a European Free Trade Area within the OEEC"
+      },
+      {
+       "kind": "event",
+       "date": "October 1956",
+       "event": "Hungarian Revolution crushed by Soviet forces"
+      },
+      {
+       "kind": "event",
+       "date": "October 1956",
+       "event": "Suez Crisis: Britain and France forced to withdraw from Egypt"
+      },
+      {
+       "kind": "event",
+       "date": "January 1957",
+       "event": "Saarland rejoins West Germany"
+      },
+      {
+       "kind": "event",
+       "date": "February 1957",
+       "event": "Eurafrica: the Six agree to associate their overseas territories in Africa with the EEC"
+      },
+      {
+       "kind": "event",
+       "date": "March 1957",
+       "event": "Treaties of Rome signed, creating the EEC and Euratom"
+      },
+      {
+       "kind": "event",
+       "date": "January 1958",
+       "event": "Treaties of Rome come into force: the EEC and Euratom begin work"
+      },
+      {
+       "kind": "event",
+       "date": "January 1958",
+       "event": "European Commission created, with Walter Hallstein as its first President"
+      },
+      {
+       "kind": "event",
+       "date": "March 1958",
+       "event": "European Parliamentary Assembly meets for the first time"
+      },
+      {
+       "kind": "event",
+       "date": "June 1958",
+       "event": "Charles de Gaulle returns to power in France"
+      },
+      {
+       "kind": "event",
+       "date": "October 1958",
+       "event": "Fifth French Republic founded, with de Gaulle as its first President"
+      },
+      {
+       "kind": "event",
+       "date": "November 1958",
+       "event": "Free Trade Area talks collapse after France rejects the plan"
+      },
+      {
+       "kind": "event",
+       "date": "January 1959",
+       "event": "First EEC tariff cuts between member states"
+      },
+      {
+       "kind": "institution",
+       "date": "September 1952",
+       "name": "European Parliament",
+       "note": "first met as the Common Assembly of the ECSC"
+      },
+      {
+       "kind": "institution",
+       "date": "September 1952",
+       "name": "Council of the European Union",
+       "note": "first met as the ECSC Special Council of Ministers"
+      },
+      {
+       "kind": "institution",
+       "date": "December 1952",
+       "name": "Court of Justice of the European Union",
+       "note": "set up as the Court of Justice of the ECSC"
+      },
+      {
+       "kind": "institution",
+       "date": "January 1958",
+       "name": "European Commission",
+       "note": "set up as the Commission of the EEC, with Walter Hallstein as President"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "60s and 70s",
+   "kind": "dates",
+   "stages": [
+    {
+     "name": "the 1960s",
+     "items": [
+      {
+       "kind": "event",
+       "date": "January 1960",
+       "event": "Stockholm Convention creates EFTA"
+      },
+      {
+       "kind": "event",
+       "date": "February 1960",
+       "event": "France tests its first atomic bomb (Gerboise Bleue)"
+      },
+      {
+       "kind": "event",
+       "date": "December 1960",
+       "event": "OECD Convention signed, replacing the OEEC"
+      },
+      {
+       "kind": "event",
+       "date": "July 1961",
+       "event": "Greece signs an association agreement with the EEC"
+      },
+      {
+       "kind": "event",
+       "date": "August 1961",
+       "event": "Britain applies to join the EEC (with Ireland and Denmark)"
+      },
+      {
+       "kind": "event",
+       "date": "August 1961",
+       "event": "Construction of the Berlin Wall begins"
+      },
+      {
+       "kind": "event",
+       "date": "November 1961",
+       "event": "Fouchet Plan for a political union presented"
+      },
+      {
+       "kind": "event",
+       "date": "January 1962",
+       "event": "Agreement on the Common Agricultural Policy (CAP)"
+      },
+      {
+       "kind": "event",
+       "date": "October 1962",
+       "event": "Cuban Missile Crisis"
+      },
+      {
+       "kind": "event",
+       "date": "January 1963",
+       "event": "De Gaulle vetoes Britain's application to the EEC"
+      },
+      {
+       "kind": "event",
+       "date": "January 1963",
+       "event": "Elysee Treaty of Franco-German friendship"
+      },
+      {
+       "kind": "event",
+       "date": "February 1963",
+       "event": "Van Gend en Loos ruling: EEC law has direct effect"
+      },
+      {
+       "kind": "event",
+       "date": "June 1963",
+       "event": "Kennedy's 'Ich bin ein Berliner' speech in West Berlin"
+      },
+      {
+       "kind": "event",
+       "date": "July 1963",
+       "event": "Yaoundé Convention links the EEC with 18 African states"
+      },
+      {
+       "kind": "event",
+       "date": "August 1963",
+       "event": "Partial Nuclear Test Ban Treaty signed by the USA, USSR and Britain"
+      },
+      {
+       "kind": "event",
+       "date": "September 1963",
+       "event": "Ankara Agreement: Turkey becomes associated with the EEC"
+      },
+      {
+       "kind": "event",
+       "date": "July 1964",
+       "event": "Costa v ENEL ruling: EEC law takes priority over national law"
+      },
+      {
+       "kind": "event",
+       "date": "April 1965",
+       "event": "Merger Treaty signed, combining the executives of the three Communities"
+      },
+      {
+       "kind": "event",
+       "date": "June 1965",
+       "event": "Empty Chair Crisis: France boycotts EEC Council meetings"
+      },
+      {
+       "kind": "event",
+       "date": "January 1966",
+       "event": "Luxembourg Compromise ends the Empty Chair Crisis"
+      },
+      {
+       "kind": "event",
+       "date": "March 1966",
+       "event": "France withdraws from NATO's integrated military command"
+      },
+      {
+       "kind": "event",
+       "date": "May 1967",
+       "event": "Britain applies to join the EEC for a second time"
+      },
+      {
+       "kind": "event",
+       "date": "July 1967",
+       "event": "Merger Treaty in force: single Commission and Council for the three Communities"
+      },
+      {
+       "kind": "event",
+       "date": "November 1967",
+       "event": "De Gaulle vetoes Britain's membership a second time"
+      },
+      {
+       "kind": "event",
+       "date": "May 1968",
+       "event": "Student protests and general strike in France"
+      },
+      {
+       "kind": "event",
+       "date": "July 1968",
+       "event": "Nuclear Non-Proliferation Treaty opens for signature"
+      },
+      {
+       "kind": "event",
+       "date": "July 1968",
+       "event": "EEC customs union completed: internal tariffs abolished and common external tariff"
+      },
+      {
+       "kind": "event",
+       "date": "August 1968",
+       "event": "Warsaw Pact invasion of Czechoslovakia ends the Prague Spring"
+      },
+      {
+       "kind": "event",
+       "date": "April 1969",
+       "event": "De Gaulle resigns as President of France"
+      },
+      {
+       "kind": "event",
+       "date": "December 1969",
+       "event": "Hague Summit sets 'completion, deepening, enlargement' agenda; Brandt and Pompidou launch plans for monetary union"
+      }
+     ]
+    },
+    {
+     "name": "the 1970s",
+     "items": [
+      {
+       "kind": "event",
+       "date": "1971",
+       "event": "Werner Report sets out a first plan for economic and monetary union, narrowing exchange-rate margins"
+      },
+      {
+       "kind": "event",
+       "date": "1971",
+       "event": "End of the Bretton Woods system"
+      },
+      {
+       "kind": "event",
+       "date": "April 1972",
+       "event": "'Snake in the tunnel' set up to keep EC currencies within narrow bands of each other"
+      },
+      {
+       "kind": "event",
+       "date": "January 1973",
+       "event": "First enlargement: the UK, Denmark and Ireland join"
+      },
+      {
+       "kind": "event",
+       "date": "October 1973",
+       "event": "First oil crisis"
+      },
+      {
+       "kind": "event",
+       "date": "December 1974",
+       "event": "European Council established, with its first meeting in Dublin"
+      },
+      {
+       "kind": "event",
+       "date": "1975",
+       "event": "Helsinki Final Act: an early intergovernmental pact on security and defence arrangements"
+      },
+      {
+       "kind": "event",
+       "date": "December 1978",
+       "event": "European Council meeting in Brussels decides to set up the EMS"
+      },
+      {
+       "kind": "event",
+       "date": "1979",
+       "event": "European Monetary System (EMS) created"
+      },
+      {
+       "kind": "event",
+       "date": "1979",
+       "event": "Soviet invasion of Afghanistan"
+      },
+      {
+       "kind": "event",
+       "date": "1979",
+       "event": "Second oil crisis"
+      },
+      {
+       "kind": "institution",
+       "date": "December 1974",
+       "name": "European Council",
+       "note": "created at the Paris Summit of heads of government"
+      },
+      {
+       "kind": "institution",
+       "date": "October 1977",
+       "name": "European Court of Auditors",
+       "note": "first met in Luxembourg"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "80s and 90s",
+   "kind": "dates",
+   "stages": [
+    {
+     "name": "the 1980s",
+     "items": [
+      {
+       "kind": "event",
+       "date": "1981",
+       "event": "Second enlargement: Greece joins the EEC"
+      },
+      {
+       "kind": "event",
+       "date": "1982",
+       "event": "The US and the EC take different approaches to sanctions on the USSR"
+      },
+      {
+       "kind": "event",
+       "date": "1985",
+       "event": "Schengen Agreement signed by five founding states, beginning border-free travel cooperation"
+      },
+      {
+       "kind": "event",
+       "date": "1986",
+       "event": "Single European Act signed: Qualified Majority Voting and a promise of a single market by 1992"
+      },
+      {
+       "kind": "event",
+       "date": "1986",
+       "event": "Third enlargement: Spain and Portugal join the EEC"
+      },
+      {
+       "kind": "event",
+       "date": "1987",
+       "event": "Single European Act comes into force"
+      },
+      {
+       "kind": "event",
+       "date": "February 1989",
+       "event": "Soviet Union withdraws from Afghanistan, a sign of waning Soviet power"
+      },
+      {
+       "kind": "event",
+       "date": "1989",
+       "event": "Fall of the Berlin Wall"
+      }
+     ]
+    },
+    {
+     "name": "the 1990s",
+     "items": [
+      {
+       "kind": "event",
+       "date": "October 1990",
+       "event": "Reunification of Germany"
+      },
+      {
+       "kind": "event",
+       "date": "1991",
+       "event": "Yugoslavia begins to collapse, starting wars that last much of the decade"
+      },
+      {
+       "kind": "event",
+       "date": "December 1991",
+       "event": "Dissolution of the Soviet Union"
+      },
+      {
+       "kind": "event",
+       "date": "February 1992",
+       "event": "Maastricht Treaty (Treaty on European Union) signed, creating the European Union"
+      },
+      {
+       "kind": "event",
+       "date": "1992",
+       "event": "Failure of EU diplomacy in the Yugoslav Wars prompts calls for deeper foreign and defence integration"
+      },
+      {
+       "kind": "event",
+       "date": "January 1993",
+       "event": "Launch of the European Single Market"
+      },
+      {
+       "kind": "event",
+       "date": "November 1993",
+       "event": "Maastricht Treaty comes into force after a tense ratification, including close Danish and French referendums"
+      },
+      {
+       "kind": "event",
+       "date": "January 1994",
+       "event": "European Economic Area (EEA) extends the single market to EFTA countries"
+      },
+      {
+       "kind": "event",
+       "date": "January 1995",
+       "event": "Enlargement: Austria, Sweden and Finland join"
+      },
+      {
+       "kind": "event",
+       "date": "March 1995",
+       "event": "Schengen Agreement takes effect, allowing travel without passport controls"
+      },
+      {
+       "kind": "event",
+       "date": "October 1997",
+       "event": "Treaty of Amsterdam signed: prepares for 10 new members, brings in Schengen and creates a High Representative for foreign policy"
+      },
+      {
+       "kind": "event",
+       "date": "1998-1999",
+       "event": "Kosovo War and NATO's bombing of Yugoslavia show the EU's military dependence on NATO"
+      },
+      {
+       "kind": "event",
+       "date": "January 1999",
+       "event": "The euro is introduced for commercial and financial transactions (Denmark, Sweden and the UK opt out)"
+      },
+      {
+       "kind": "event",
+       "date": "June 1999",
+       "event": "European Security and Defence Policy (ESDP) created for joint crisis-management operations"
+      },
+      {
+       "kind": "institution",
+       "date": "June 1998",
+       "name": "European Central Bank",
+       "note": "set up in Frankfurt ahead of the euro"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "2000s",
+   "kind": "dates",
+   "stages": [
+    {
+     "name": "the 2000s",
+     "items": [
+      {
+       "kind": "event",
+       "date": "February 2001",
+       "event": "Nice Treaty signed, reforming EU institutions for an enlarged union"
+      },
+      {
+       "kind": "event",
+       "date": "December 2001",
+       "event": "Laeken Declaration sets up a convention to draft a constitution for Europe"
+      },
+      {
+       "kind": "event",
+       "date": "January 2002",
+       "event": "Euro notes and coins become legal currency in 12 EU countries"
+      },
+      {
+       "kind": "event",
+       "date": "February 2002",
+       "event": "Convention on the Future of Europe begins drafting an EU Constitution"
+      },
+      {
+       "kind": "event",
+       "date": "February 2004",
+       "event": "EU Battlegroups established as rapid-response military units"
+      },
+      {
+       "kind": "event",
+       "date": "May 2004",
+       "event": "'Big bang' enlargement: the EU grows from 15 to 25 members"
+      },
+      {
+       "kind": "event",
+       "date": "June 2004",
+       "event": "Treaty establishing a European Constitution adopted by the European Council"
+      },
+      {
+       "kind": "event",
+       "date": "October 2004",
+       "event": "Frontex set up to coordinate and strengthen EU border control"
+      },
+      {
+       "kind": "event",
+       "date": "May - June 2005",
+       "event": "France and the Netherlands reject the European Constitution, starting a 'period of reflection'"
+      },
+      {
+       "kind": "event",
+       "date": "January 2007",
+       "event": "Sixth enlargement: Bulgaria and Romania join the EU"
+      },
+      {
+       "kind": "event",
+       "date": "December 2007",
+       "event": "Lisbon Treaty signed: more QMV, a permanent President of the European Council and a binding Charter of Fundamental Rights"
+      },
+      {
+       "kind": "event",
+       "date": "December 2009",
+       "event": "Common Security and Defence Policy (CSDP) replaces the ESDP under the Lisbon Treaty"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "2010s and 2020s",
+   "kind": "dates",
+   "stages": [
+    {
+     "name": "the 2010s",
+     "items": [
+      {
+       "kind": "event",
+       "date": "July 2013",
+       "event": "Seventh enlargement: Croatia joins the EU"
+      },
+      {
+       "kind": "event",
+       "date": "2014",
+       "event": "Russia invades eastern Ukraine and annexes Crimea, triggering the EU's first major sanctions regime"
+      },
+      {
+       "kind": "event",
+       "date": "June 2016",
+       "event": "The UK votes to leave the EU in the Brexit referendum"
+      },
+      {
+       "kind": "event",
+       "date": "2017",
+       "event": "EU launches Permanent Structured Cooperation (PESCO) on defence"
+      },
+      {
+       "kind": "event",
+       "date": "2019",
+       "event": "European Green Deal unveiled, aiming for climate neutrality by 2050"
+      }
+     ]
+    },
+    {
+     "name": "the 2020s",
+     "items": [
+      {
+       "kind": "event",
+       "date": "January 2020",
+       "event": "Common EU response to Covid-19: joint vaccine buying and a historic stimulus package"
+      },
+      {
+       "kind": "event",
+       "date": "January 2020",
+       "event": "The United Kingdom formally leaves the EU"
+      },
+      {
+       "kind": "event",
+       "date": "February 2021",
+       "event": "EU launches the €750 billion NextGenerationEU recovery fund"
+      },
+      {
+       "kind": "event",
+       "date": "February 2022",
+       "event": "Russia begins a full-scale invasion of Ukraine; the EU responds with unprecedented sanctions and aid"
+      },
+      {
+       "kind": "event",
+       "date": "March 2022",
+       "event": "EU adopts its first Strategic Compass for defence and security"
+      },
+      {
+       "kind": "event",
+       "date": "May 2022",
+       "event": "REPowerEU plan launched to cut dependence on Russian fossil fuels"
+      },
+      {
+       "kind": "event",
+       "date": "March 2025",
+       "event": "ReArm Europe defence-investment package adopted, including €150 billion of joint borrowing"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Key terms",
+   "kind": "terms",
+   "stages": [
+    {
+     "name": "economics: money and exchange rates",
+     "items": [
+      {
+       "kind": "term",
+       "term": "Gold standard",
+       "definition": "A system where money is tied to a fixed amount of gold, and paper money can in principle be swapped for gold.",
+       "section": "Money"
+      },
+      {
+       "kind": "term",
+       "term": "Gold-exchange standard",
+       "definition": "A diluted gold standard where only one currency (the dollar under Bretton Woods) is tied to gold, and other currencies are tied to that currency.",
+       "section": "Money"
+      },
+      {
+       "kind": "term",
+       "term": "Fiat currency",
+       "definition": "Money that is not backed by gold or anything physical. It has value because the government says it is legal money and people trust it. All major currencies today are fiat.",
+       "section": "Money"
+      },
+      {
+       "kind": "term",
+       "term": "Reserve currency",
+       "definition": "A currency that other countries hold in large amounts for trade and savings. The US dollar has been the main one since 1945.",
+       "section": "Money"
+      },
+      {
+       "kind": "term",
+       "term": "Foreign exchange reserves",
+       "definition": "The stock of foreign currencies (and gold) that a central bank keeps, partly so it can buy its own currency to defend its value.",
+       "section": "Money"
+      },
+      {
+       "kind": "term",
+       "term": "Exorbitant privilege",
+       "definition": "French phrase for America's advantage from the dollar's reserve role: the US can pay for imports and borrow cheaply in its own currency.",
+       "section": "Money"
+      },
+      {
+       "kind": "term",
+       "term": "Exchange rate",
+       "definition": "The price of one currency in terms of another, e.g. how many dollars one pound buys.",
+       "section": "Exchange rates"
+      },
+      {
+       "kind": "term",
+       "term": "Fixed exchange rate",
+       "definition": "The government sets an official rate and promises to keep it there.",
+       "section": "Exchange rates"
+      },
+      {
+       "kind": "term",
+       "term": "Pegged currency",
+       "definition": "A currency fixed to another currency (or to gold or a basket of currencies). In practice it means much the same as a fixed rate.",
+       "section": "Exchange rates"
+      },
+      {
+       "kind": "term",
+       "term": "Parity / par value",
+       "definition": "The official fixed rate at which a currency is pegged.",
+       "section": "Exchange rates"
+      },
+      {
+       "kind": "term",
+       "term": "Band (margin of fluctuation)",
+       "definition": "The small range around the official rate within which a currency is allowed to move, e.g. plus or minus 2.25 per cent.",
+       "section": "Exchange rates"
+      },
+      {
+       "kind": "term",
+       "term": "Floating exchange rate",
+       "definition": "The rate is set by supply and demand in the markets, not by government.",
+       "section": "Exchange rates"
+      },
+      {
+       "kind": "term",
+       "term": "Managed float",
+       "definition": "A floating rate that the central bank still nudges from time to time.",
+       "section": "Exchange rates"
+      },
+      {
+       "kind": "term",
+       "term": "Joint float",
+       "definition": "A group of currencies fixed to each other but floating together against outside currencies such as the dollar. This is what the Snake became in 1973.",
+       "section": "Exchange rates"
+      },
+      {
+       "kind": "term",
+       "term": "Devaluation",
+       "definition": "A government officially lowers its currency's fixed value. Exports get cheaper, imports dearer.",
+       "section": "Exchange rates"
+      },
+      {
+       "kind": "term",
+       "term": "Revaluation",
+       "definition": "The opposite of devaluation: officially raising a currency's value. Germany was repeatedly pressed to do this to the Deutsche Mark.",
+       "section": "Exchange rates"
+      },
+      {
+       "kind": "term",
+       "term": "Depreciation / appreciation",
+       "definition": "A currency falling or rising in value through market forces rather than a government decision.",
+       "section": "Exchange rates"
+      },
+      {
+       "kind": "term",
+       "term": "Realignment",
+       "definition": "An agreed change to the fixed rates within a system like the EMS, usually some currencies devaluing and others revaluing.",
+       "section": "Exchange rates"
+      },
+      {
+       "kind": "term",
+       "term": "Anchor currency",
+       "definition": "The strongest currency in a group, to which the others effectively have to adjust. In the EMS this was the Deutsche Mark.",
+       "section": "Exchange rates"
+      }
+     ]
+    },
+    {
+     "name": "economics: markets and policy",
+     "items": [
+      {
+       "kind": "term",
+       "term": "Speculation",
+       "definition": "Buying or selling currencies to profit from expected changes in their value.",
+       "section": "Markets"
+      },
+      {
+       "kind": "term",
+       "term": "Speculative attack",
+       "definition": "Investors selling a currency en masse because they expect it to be devalued, which can force the devaluation to happen. Sterling in 1992 is the famous example.",
+       "section": "Markets"
+      },
+      {
+       "kind": "term",
+       "term": "Intervention",
+       "definition": "A central bank buying or selling currencies to push the exchange rate back to where it wants it.",
+       "section": "Markets"
+      },
+      {
+       "kind": "term",
+       "term": "Capital controls",
+       "definition": "Government restrictions on moving money in or out of a country.",
+       "section": "Markets"
+      },
+      {
+       "kind": "term",
+       "term": "Capital liberalisation / capital mobility",
+       "definition": "Removing restrictions on moving money in or out of a country, so money can move freely across borders. Required by the Single European Act, and it made fixed rates much harder to defend.",
+       "section": "Markets"
+      },
+      {
+       "kind": "term",
+       "term": "Balance of payments",
+       "definition": "The record of all money flowing into and out of a country, including trade.",
+       "section": "Markets"
+      },
+      {
+       "kind": "term",
+       "term": "Trade deficit / surplus",
+       "definition": "Importing more than you export (deficit) or exporting more than you import (surplus). Germany ran persistent surpluses.",
+       "section": "Markets"
+      },
+      {
+       "kind": "term",
+       "term": "Inflation",
+       "definition": "A general rise in prices, so money buys less over time.",
+       "section": "Economic conditions and policy"
+      },
+      {
+       "kind": "term",
+       "term": "Stagflation",
+       "definition": "Inflation combined with a stagnant economy and rising unemployment. The defining problem of the 1970s.",
+       "section": "Economic conditions and policy"
+      },
+      {
+       "kind": "term",
+       "term": "Monetary policy",
+       "definition": "Decisions about interest rates and the money supply, made by the central bank.",
+       "section": "Economic conditions and policy"
+      },
+      {
+       "kind": "term",
+       "term": "Fiscal policy",
+       "definition": "Decisions about government spending and taxation, made by governments.",
+       "section": "Economic conditions and policy"
+      },
+      {
+       "kind": "term",
+       "term": "Interest rate",
+       "definition": "The price of borrowing money. Raising rates cools the economy and fights inflation; cutting them stimulates it.",
+       "section": "Economic conditions and policy"
+      },
+      {
+       "kind": "term",
+       "term": "Central bank",
+       "definition": "The institution that issues a country's money and sets interest rates, e.g. the Bundesbank, the Bank of England, the ECB.",
+       "section": "Economic conditions and policy"
+      },
+      {
+       "kind": "term",
+       "term": "Central bank independence",
+       "definition": "The central bank sets policy free from government interference. The Bundesbank was the model, and the ECB copied it.",
+       "section": "Economic conditions and policy"
+      },
+      {
+       "kind": "term",
+       "term": "Lender of last resort",
+       "definition": "An institution that lends money to banks or governments in a crisis when no one else will. The EMS lacked one.",
+       "section": "Economic conditions and policy"
+      },
+      {
+       "kind": "term",
+       "term": "Austerity",
+       "definition": "Cutting public spending and/or raising taxes to reduce deficits.",
+       "section": "Economic conditions and policy"
+      },
+      {
+       "kind": "term",
+       "term": "Internal devaluation",
+       "definition": "Regaining competitiveness by cutting wages and prices at home, because devaluing the currency is not possible. The euro left this as the only option.",
+       "section": "Economic conditions and policy"
+      },
+      {
+       "kind": "term",
+       "term": "Sound money",
+       "definition": "Shorthand for the philosophy of low inflation, balanced budgets and an independent central bank.",
+       "section": "Economic conditions and policy"
+      },
+      {
+       "kind": "term",
+       "term": "Keynesianism",
+       "definition": "The approach of using government spending to boost demand and fight unemployment. Mitterrand tried it in 1981 to 1983 before abandoning it.",
+       "section": "Economic conditions and policy"
+      }
+     ]
+    },
+    {
+     "name": "economics: systems and EMU",
+     "items": [
+      {
+       "kind": "term",
+       "term": "Bretton Woods system",
+       "definition": "The post-1944 monetary order: currencies pegged to the dollar, the dollar convertible to gold at $35 an ounce for governments.",
+       "section": "Key systems and policies"
+      },
+      {
+       "kind": "term",
+       "term": "Triffin dilemma",
+       "definition": "The flaw in Bretton Woods: the world needed ever more dollars, but the more dollars there were, the less believable the US promise to swap them for gold.",
+       "section": "Key systems and policies"
+      },
+      {
+       "kind": "term",
+       "term": "Closing the gold window / Nixon shock",
+       "definition": "Nixon's August 1971 decision to stop swapping dollars for gold, which effectively ended Bretton Woods.",
+       "section": "Key systems and policies"
+      },
+      {
+       "kind": "term",
+       "term": "Smithsonian Agreement",
+       "definition": "The December 1971 attempt to rescue fixed rates with new parities and wider bands. It collapsed by early 1973.",
+       "section": "Key systems and policies"
+      },
+      {
+       "kind": "term",
+       "term": "The Snake",
+       "definition": "The European arrangement from 1972 to keep EC currencies close together. It kept losing members and became a Deutsche Mark zone.",
+       "section": "Key systems and policies"
+      },
+      {
+       "kind": "term",
+       "term": "European Monetary System (EMS)",
+       "definition": "The 1979 system created by Schmidt and Giscard to stabilise European currencies.",
+       "section": "Key systems and policies"
+      },
+      {
+       "kind": "term",
+       "term": "Exchange Rate Mechanism (ERM)",
+       "definition": "The core of the EMS: currencies pegged within bands, with realignments possible.",
+       "section": "Key systems and policies"
+      },
+      {
+       "kind": "term",
+       "term": "European Currency Unit (ECU)",
+       "definition": "An accounting unit made up of a basket of EC currencies, used as the reference point for the ERM. A forerunner of the euro.",
+       "section": "Key systems and policies"
+      },
+      {
+       "kind": "term",
+       "term": "Franc fort",
+       "definition": "The \"strong franc\" policy France adopted after 1983: keeping the franc stable against the Deutsche Mark through low inflation.",
+       "section": "Key systems and policies"
+      },
+      {
+       "kind": "term",
+       "term": "ERM crisis (1992 to 1993)",
+       "definition": "The speculative attacks that forced sterling and the lira out of the ERM and led to bands being widened to 15 per cent.",
+       "section": "Key systems and policies"
+      },
+      {
+       "kind": "term",
+       "term": "Economic and Monetary Union (EMU)",
+       "definition": "The project of a single European currency managed by a common central bank, alongside economic coordination.",
+       "section": "Concepts from the debates about EMU"
+      },
+      {
+       "kind": "term",
+       "term": "Monetarists vs economists",
+       "definition": "In the EU debate (not the economics school of Milton Friedman): monetarists said fix currencies first and economies will converge; economists said economies must converge first.",
+       "section": "Concepts from the debates about EMU"
+      },
+      {
+       "kind": "term",
+       "term": "Coronation theory",
+       "definition": "The \"economist\" view that a single currency should be the crowning final step after convergence.",
+       "section": "Concepts from the debates about EMU"
+      },
+      {
+       "kind": "term",
+       "term": "Asymmetry of adjustment",
+       "definition": "The burden of keeping currencies aligned falls mainly on weaker-currency countries, not strong ones like Germany.",
+       "section": "Concepts from the debates about EMU"
+      },
+      {
+       "kind": "term",
+       "term": "External constraint (vincolo esterno)",
+       "definition": "Governments using European commitments to justify difficult domestic reforms they couldn't otherwise pass.",
+       "section": "Concepts from the debates about EMU"
+      },
+      {
+       "kind": "term",
+       "term": "Optimum currency area",
+       "definition": "Economic theory on when countries benefit from sharing a currency: e.g. similar economies, mobile workers and shared shocks. Critics said the eurozone was not one.",
+       "section": "Concepts from the debates about EMU"
+      },
+      {
+       "kind": "term",
+       "term": "Asymmetric shock",
+       "definition": "An economic blow that hits some countries in a currency union much harder than others, making one interest rate unsuitable for all.",
+       "section": "Concepts from the debates about EMU"
+      },
+      {
+       "kind": "term",
+       "term": "Convergence criteria",
+       "definition": "The Maastricht entry tests for the euro: low inflation, low interest rates, deficits under 3 per cent of GDP, debt under 60 per cent of GDP, and stable exchange rates.",
+       "section": "Concepts from the debates about EMU"
+      },
+      {
+       "kind": "term",
+       "term": "Stability and Growth Pact",
+       "definition": "The 1997 rules meant to keep deficits and debts within the Maastricht limits after the euro started.",
+       "section": "Concepts from the debates about EMU"
+      },
+      {
+       "kind": "term",
+       "term": "No-bailout clause",
+       "definition": "The Maastricht rule that the EU and other member states are not liable for a member's debts.",
+       "section": "Concepts from the debates about EMU"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

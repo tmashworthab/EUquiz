@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>EU Quiz editor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+  :root { --eu-blue: #003399; --eu-gold: #ffcc00; --ink: #1f2a3c; --muted: #6b7079; --red: #d42a2a; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100dvh; display: grid; place-items: center; padding: 16px;
+    font-family: "Nunito", system-ui, sans-serif; font-weight: 800; color: var(--ink); background: var(--eu-blue);
+  }
+  form { width: 100%; max-width: 380px; background: #fff; border: 3px solid var(--ink); border-radius: 18px; padding: 24px 20px; box-shadow: 0 6px 0 rgba(0,0,0,.25); }
+  h1 { font-family: "Press Start 2P", monospace; font-weight: 400; font-size: 18px; line-height: 1.5; color: var(--eu-blue); margin: 0 0 6px; }
+  p { margin: 0 0 18px; color: var(--muted); font-weight: 700; }
+  label { display: block; margin-bottom: 6px; }
+  input { width: 100%; font: inherit; font-size: 17px; padding: 12px 14px; border: 2px solid #c6cad1; border-radius: 12px; }
+  input:focus { outline: 3px solid var(--eu-gold); border-color: var(--eu-blue); }
+  button { margin-top: 16px; width: 100%; font: inherit; font-size: 16px; text-transform: uppercase; letter-spacing: .8px;
+    color: #fff; background: var(--eu-blue); border: 0; border-radius: 14px; padding: 14px; box-shadow: 0 4px 0 #001f66; cursor: pointer; }
+  .error { color: var(--red); margin: 12px 0 0; }
+</style>
+</head>
+<body>
+<form method="post" action="{{ url_for('admin_login') }}">
+  <h1>Quiz editor</h1>
+  <p>Only the quiz owner can edit questions.</p>
+  <label for="password">Password</label>
+  <input id="password" name="password" type="password" autocomplete="current-password" autofocus required>
+  {% if error %}<p class="error">{{ error }}</p>{% endif %}
+  <button type="submit">Log in</button>
+</form>
+</body>
+</html>
